@@ -1,4 +1,4 @@
-package com.example.customerarrestsystem.entity;
+package com.arestmanagement.entity;
 
 import lombok.Getter;
 import lombok.Setter;

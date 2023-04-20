@@ -1,51 +1,56 @@
-package com.example.customerarrestsystem.entity;
+package com.arestmanagement.entity;
 
-import com.example.customerarrestsystem.converter.IdentityDocumentTypeConverter;
-import com.example.customerarrestsystem.util.IdentityDocumentType;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import com.arestmanagement.converter.InnerIdentityDocumentTypeConverter;
+import com.arestmanagement.converter.LocalDateConverter;
+import com.arestmanagement.util.InternalIdentityDocumentType;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.*;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
-import java.sql.Date;
+import javax.validation.constraints.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Table(name = "persons")
 @Getter
 @Setter
-@ToString
+@ToString(exclude = "arrests")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Person extends BaseEntity {
 
     @Column(name = "first_name")
+    @Size(max = 100, message = "The maximum length of the first name can be no more than 100 characters. Please enter less value")
     private String firstName;
 
     @Column(name = "last_name")
+    @Size(max = 100, message = "The maximum length of the last name can be no more than 100 characters. Please enter less value")
     private String lastName;
 
     @Column(name = "birthday")
-    private Date birthday;
+    @Past
+    @Convert(converter = LocalDateConverter.class)
+    private LocalDate birthday;
 
     @Column(name = "birthplace")
+    @Size(max = 250, message = "The maximum length of the birth place can be no more than 250 characters. Please enter less value")
     private String birthplace;
 
-    //todo ident_doc_type
-    @Column(name = "type_ident_doc")
-    @Convert(converter = IdentityDocumentTypeConverter.class)
-    private IdentityDocumentType typeIdentDoc;
+    @Column(name = "ident_doc_type")
+    @Convert(converter = InnerIdentityDocumentTypeConverter.class)
+    private InternalIdentityDocumentType identDocType;
 
-    //todo doc_number_series
-    @Column(name = "number_series_doc")
-    private String numberSeriesDoc;
+    @Column(name = "doc_number_series")
+    private String docNumberSeries;
 
     @Column(name = "issue_date")
-    private Date issueDate;
+    @PastOrPresent
+    private LocalDate issueDate;
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
-    //todo remove JsonManagedReference
-    @JsonManagedReference
     private List<Arrest> arrests;
-
 
 }

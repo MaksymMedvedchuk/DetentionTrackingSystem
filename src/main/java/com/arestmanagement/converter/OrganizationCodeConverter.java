@@ -1,19 +1,19 @@
 package com.arestmanagement.converter;
 
-import com.arestmanagement.util.StateOrganizationType;
+import com.arestmanagement.util.OrganizationCode;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Convert;
 
 @Convert
-public class StateOrganizationTypeConverter implements AttributeConverter<StateOrganizationType, Integer> {
+public class OrganizationCodeConverter implements AttributeConverter<OrganizationCode, Integer> {
     @Override
-    public Integer convertToDatabaseColumn(StateOrganizationType attribute) {
+    public Integer convertToDatabaseColumn(OrganizationCode attribute) {
         return attribute.getCode();
     }
 
     @Override
-    public StateOrganizationType convertToEntityAttribute(Integer dbData) {
-        return StateOrganizationType.getByCode(dbData);
+    public OrganizationCode convertToEntityAttribute(Integer dbData) {
+        return OrganizationCode.getByCode(dbData);
     }
 }

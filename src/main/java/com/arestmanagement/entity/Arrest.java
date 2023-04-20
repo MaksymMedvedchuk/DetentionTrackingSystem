@@ -1,46 +1,54 @@
-package com.example.customerarrestsystem.entity;
+package com.arestmanagement.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import com.arestmanagement.converter.OrganizationCodeConverter;
+import com.arestmanagement.converter.StatusTypeConverter;
+import com.arestmanagement.util.OrganizationCode;
+import com.arestmanagement.util.StatusType;
+import lombok.*;
 
 import javax.persistence.*;
-import java.sql.Date;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "arrests")
 @Getter
 @Setter
-@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString(exclude = "person")
+@Builder
 public class Arrest extends BaseEntity {
 
     @Column(name = "organ_code")
-    //todo make all dictionaries enums
-    private int organCode;
+    @Convert(converter = OrganizationCodeConverter.class)
+    private OrganizationCode organizationCode;
 
     @Column(name = "doc_date")
-    private Date docDate;
+    @PastOrPresent
+    private LocalDate docDate;
 
-    @Column(name = "doc_num")
+    @Column(name = "doc_num", unique = true)
+    @Size(max = 30, message = "The maximum length of the document number can be no more than 30 characters. Please enter less value")
+    @Pattern(regexp = "[a-zA-Z\\d#№-]+", message = "You enter the wrong character. Please enter allowed symbols letters " +
+            "of the Latin alphabet, numbers, and symbol #, №, -")
     private String docNum;
 
     @Column(name = "purpose")
+    @Size(max = 1000, message = "The maximum length of the purpose can be no more than 1000 characters. Please enter less value")
     private String purpose;
-
-    @Column(name = "ref_doc_num")
-    private String refDocNum;
 
     @Column(name = "amount")
     private Long amount;
 
-    @Column(name = "operation_type")
-    //todo make status
-    private int operationType;
+    @Column(name = "status_type")
+    @Convert(converter = StatusTypeConverter.class)
+    private StatusType statusType;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "person_id")
-    @JsonBackReference //todo remove
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinColumn(name = "person")
     private Person person;
 }

@@ -5,15 +5,74 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="547e7ebe-7c06-4470-af04-2e51e5686382" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/ArrestApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/controller/ArrestManagementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/ExternalDataConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/ExternalDataConverterImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/InnerIdentityDocumentTypeConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/LocalDateConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/ArrestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/ArrestRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/IdentityDocumentDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/ResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/exception/ArrestNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/exception/CustomerRestExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/exception/ValidationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/repository/ArrestRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/repository/PersonRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/service/ArrestManagementService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/service/ArrestManagementServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/ExternalIdentityDocumentType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/InternalIdentityDocumentType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/ResultCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/validator/OrganCodeMatchValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/validator/OrganCodeMatchValidatorImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/validator/UuidValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/database/initDB.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/CustomerArrestSystem_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/CustomerArrestSystem_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/IdentityDocumentTypeConverter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/OperationTypeConverter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/OrganizationCodeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/OrganizationCodeConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/OuterIdentityDocumentTypeConverter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/StatusTypeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/StatusTypeConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/Arrest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/ArrestRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/IdentityDocument.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/Response.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/Arrest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/Arrest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/BaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/InnerIdentityDocumentType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/OperationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/OperationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/OrganizationCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/OrganizationCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/OuterIdentityDocumentType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/StatusType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/StatusType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/init.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Mn6vnGtYjsB4H0uDpc5Hj5nzjr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -23,11 +82,105 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelOrder2": "2",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RequestMappingsPanelWidth2": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/po1ak/IdeaProjects/ArrestManagementSystem",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "spring.configuration.checksum": "8764a4d2acb693fa07eea17e606a831d"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "PostgreSQL"
+    ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\po1ak\IdeaProjects\ArrestManagementSystem\src\main\resources\database" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn dependency:tree" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ArrestApplication">
+    <configuration name="Runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.arestmanagement.Runner" />
+      <module name="ArrestManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.arestmanagement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.arestmanagement.controller.Runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.arestmanagement.controller.Runner" />
+      <module name="ArrestManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.arestmanagement.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.arestmanagement.util.Runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.arestmanagement.util.Runner" />
+      <module name="ArrestManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.arestmanagement.util.InternalIdentityDocumentType" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArrestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="ArrestManagementSystem" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.arestmanagement.ArrestApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.arestmanagement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.ArrestApplication" />
+        <item itemvalue="Application.com.arestmanagement.controller.Runner" />
+        <item itemvalue="Application.Runner" />
+        <item itemvalue="Application.com.arestmanagement.util.Runner" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -36,9 +189,76 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1678391233332</updated>
-      <workItem from="1678391234669" duration="2000" />
+      <workItem from="1678391234669" duration="4948000" />
+      <workItem from="1678438148103" duration="7304000" />
+      <workItem from="1678454600494" duration="6662000" />
+      <workItem from="1678716545450" duration="5749000" />
+      <workItem from="1678723678650" duration="110000" />
+      <workItem from="1678723799865" duration="257000" />
+      <workItem from="1678724093566" duration="15083000" />
+      <workItem from="1678782395570" duration="8715000" />
+      <workItem from="1678793936568" duration="7071000" />
+      <workItem from="1678818098558" duration="6861000" />
+      <workItem from="1678828443558" duration="648000" />
+      <workItem from="1678871066145" duration="6919000" />
+      <workItem from="1678894278837" duration="3019000" />
+      <workItem from="1678913919757" duration="1623000" />
+      <workItem from="1678957657689" duration="1827000" />
+      <workItem from="1678978641337" duration="7416000" />
+      <workItem from="1678992664757" duration="3998000" />
+      <workItem from="1679041659508" duration="23885000" />
+      <workItem from="1679081900640" duration="5261000" />
+      <workItem from="1679138324056" duration="400000" />
+      <workItem from="1679149652756" duration="6562000" />
+      <workItem from="1679301339166" duration="10201000" />
+      <workItem from="1679323021575" duration="5487000" />
+      <workItem from="1679335971590" duration="5260000" />
+      <workItem from="1679389242526" duration="5559000" />
+      <workItem from="1679395763211" duration="4846000" />
+      <workItem from="1679409001907" duration="16876000" />
+      <workItem from="1679473106853" duration="9088000" />
+      <workItem from="1679497342947" duration="12919000" />
+      <workItem from="1679647294142" duration="7699000" />
+      <workItem from="1679667373792" duration="596000" />
+      <workItem from="1679992790848" duration="13738000" />
+      <workItem from="1680023470725" duration="6716000" />
+      <workItem from="1680081084359" duration="4088000" />
+      <workItem from="1680095970688" duration="6887000" />
+      <workItem from="1680163141895" duration="14304000" />
+      <workItem from="1680182805001" duration="2704000" />
+      <workItem from="1680198680288" duration="9361000" />
+      <workItem from="1680254410947" duration="2416000" />
+      <workItem from="1680268300150" duration="10311000" />
+      <workItem from="1680288095357" duration="8339000" />
+      <workItem from="1680353239487" duration="594000" />
+      <workItem from="1680355572606" duration="2819000" />
+      <workItem from="1680679122726" duration="10803000" />
+      <workItem from="1680704577846" duration="15096000" />
+      <workItem from="1680767590172" duration="16963000" />
+      <workItem from="1680802200926" duration="10029000" />
+      <workItem from="1680854062103" duration="1834000" />
+      <workItem from="1680855914351" duration="11043000" />
+      <workItem from="1680890101364" duration="9844000" />
+      <workItem from="1681119584778" duration="4520000" />
+      <workItem from="1681130825732" duration="11927000" />
+      <workItem from="1681147963545" duration="10292000" />
+      <workItem from="1681197797001" duration="23134000" />
+      <workItem from="1681281782452" duration="8172000" />
+      <workItem from="1681304084320" duration="14131000" />
+      <workItem from="1681373453784" duration="11497000" />
+      <workItem from="1681393721306" duration="16667000" />
+      <workItem from="1681418181285" duration="52000" />
+      <workItem from="1681458036736" duration="7752000" />
+      <workItem from="1681810969299" duration="7121000" />
+      <workItem from="1681828106716" duration="9803000" />
+      <workItem from="1681890867364" duration="6939000" />
+      <workItem from="1681910792605" duration="1514000" />
+      <workItem from="1681926273122" duration="7794000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -50,5 +270,21 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="ex.stackTrace" />
+        <watch expression="ex.detailMessage" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ArrestManagementSystem$com_arestmanagement_controller_Runner.ic" NAME="com.arestmanagement.controller.Runner Coverage Results" MODIFIED="1680269887981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.arestmanagement.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/ArrestManagementSystem$ArrestApplication.ic" NAME="ArrestApplication Coverage Results" MODIFIED="1681227292591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.arestmanagement.*</FILTER>
+    </SUITE>
   </component>
 </project>

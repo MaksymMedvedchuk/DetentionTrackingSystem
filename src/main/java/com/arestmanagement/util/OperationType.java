@@ -1,18 +1,30 @@
 package com.arestmanagement.util;
 
-public enum OptionType {
+import com.fasterxml.jackson.annotation.JsonValue;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-    PRIMARY("primary"),
-    CHANGED("changed"),
-    CANCELED("canceled");
+import java.util.NoSuchElementException;
 
-    public String operation;
+@Getter
+@AllArgsConstructor
+public enum OperationType {
 
-    OptionType(String operation) {
-        this.operation = operation;
+    PRIMARY(1),
+    CHANGED(2),
+    CANCELED(3);
+
+    private final Integer code;
+
+    public static OperationType getByCode(Integer code) {
+        for (OperationType element : OperationType.values()) {
+            if (element.getCode().equals(code)) return element;
+        }
+        throw new NoSuchElementException("No element for code " + code);
     }
 
-    public String getOperation() {
-        return operation;
+    @JsonValue
+    public Integer getCode() {
+        return code;
     }
 }
