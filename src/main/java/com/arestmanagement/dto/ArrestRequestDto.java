@@ -21,9 +21,8 @@ public class ArrestRequestDto {
 
     @JsonProperty("RequestId")
     private UUID requestId;
-    //private String requestId;
 
-    @NotEmpty(message = "FirstName can't be empty. Please enter value")//не порожній рядок і не null
+    @NotEmpty(message = "FirstName can't be empty. Please enter value")
     @Pattern(regexp = "[A-Za-z\\-]+", message = "You enter the wrong character. Valid values: letters of the Latin alphabet and the symbol '-'")
     @Size(max = 100, message = "The maximum length of the FirstName can be no more than 100 characters. Please enter less value")
     @JsonProperty("FirstName")

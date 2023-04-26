@@ -19,7 +19,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-//todo inject via interfaces
 public class ArrestManagementServiceImpl implements ArrestManagementService {
     @Autowired
     private PersonRepository personRepository;
@@ -41,7 +40,13 @@ public class ArrestManagementServiceImpl implements ArrestManagementService {
 
     private ResponseDto processPrimary(ArrestRequestDto request) {
         Person person = saveOrFindPerson(request);
-        Arrest arrest = Arrest.builder()
+        Arrest arrest = convertArrestToEntity(request, person);
+        arrest = arrestRepository.save(arrest);
+        return buildResponseDto(arrest);
+    }
+
+    Arrest convertArrestToEntity(ArrestRequestDto request, Person person) {
+        return Arrest.builder()
                 .organizationCode(request.getOrganCode())
                 .docDate(request.getArrestDto().getDocDate())
                 .docNum(request.getArrestDto().getDocNum())
@@ -50,12 +55,9 @@ public class ArrestManagementServiceImpl implements ArrestManagementService {
                 .statusType(StatusType.ACTIVE)
                 .person(person)
                 .build();
-        arrest = arrestRepository.save(arrest);
-        return buildResponseDto(arrest);
     }
 
     private ResponseDto processChanged(ArrestRequestDto request) {
-        //todo replace RuntimeException with own
         Arrest arrest = arrestRepository.findByDocNum(request.getArrestDto().getRefDocNum())
                 .orElseThrow(() -> new ArrestNotFoundException("Arrest not found"));
         Long amount = arrest.getAmount() - request.getArrestDto().getAmount();
@@ -74,7 +76,6 @@ public class ArrestManagementServiceImpl implements ArrestManagementService {
     }
 
     private ResponseDto processCanceled(ArrestRequestDto request) {
-        //todo replace RuntimeException with own
         Arrest arrest = arrestRepository.findByDocNum(request.getArrestDto().getRefDocNum())
                 .orElseThrow(() -> new ArrestNotFoundException("Arrest not found"));
         arrest.setStatusType(StatusType.CANCELED);
@@ -82,10 +83,10 @@ public class ArrestManagementServiceImpl implements ArrestManagementService {
         return buildResponseDto(arrest);
     }
 
-    private Person saveOrFindPerson(ArrestRequestDto request) {
-        Pair<InternalIdentityDocumentType, String> internalDocData = externalDataConverter.convertExternalToInternalData(request);
-        String internalNumSeries = internalDocData.getValue();
-        InternalIdentityDocumentType internalDocType = internalDocData.getKey();
+    Person saveOrFindPerson(ArrestRequestDto request) {
+        Pair<InternalIdentityDocumentType, String> internalIdentDoc = externalDataConverter.convertExternalToInternalData(request);
+        String internalNumSeries = internalIdentDoc.getValue();
+        InternalIdentityDocumentType internalDocType = internalIdentDoc.getKey();
         Person person = personRepository.findPerson(request.getFirstName(), request.getLastName(),
                         internalDocType, internalNumSeries)
                 .orElse(convertPersonToEntity(request, internalNumSeries, internalDocType));
@@ -93,7 +94,7 @@ public class ArrestManagementServiceImpl implements ArrestManagementService {
     }
 
     //todo to test make private method package private and create test in the same package in test directory
-    private Person convertPersonToEntity(ArrestRequestDto request, String internalNumSeries, InternalIdentityDocumentType internalDocType) {
+    Person convertPersonToEntity(ArrestRequestDto request, String internalNumSeries, InternalIdentityDocumentType internalDocType) {
         return Person.builder()
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())

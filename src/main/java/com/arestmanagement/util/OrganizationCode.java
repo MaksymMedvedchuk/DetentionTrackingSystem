@@ -4,10 +4,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.stream.Collectors;
 
 @Getter
 @AllArgsConstructor
@@ -24,7 +21,6 @@ public enum OrganizationCode {
         }
         throw new NoSuchElementException("No element for code " + code);
     }
-
 
     @JsonValue//серіалізує значення в json
     public Integer getCode() {

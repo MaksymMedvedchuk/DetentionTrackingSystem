@@ -20,6 +20,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+//todo warning
+@EqualsAndHashCode(callSuper = true)
 public class Person extends BaseEntity {
 
     @Column(name = "first_name")

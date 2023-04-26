@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class ArrestDto {
 
     @NotNull(message = "DocDate can't be empty. Please enter value")

@@ -17,7 +17,7 @@ import java.util.List;
 @ControllerAdvice
 public class CustomerRestExceptionHandler {
 
-    @ExceptionHandler({ValidationException.class})
+    @ExceptionHandler()
     private ResponseEntity<ResponseDto> handleOrganCodeNotMatchEx(ValidationException ex) {
         ResponseDto responseDtoError = new ResponseDto(ResultCode.BUSINESS_DATA_ERROR, ex.getMessage());
         return new ResponseEntity<>(responseDtoError, HttpStatus.BAD_REQUEST);
@@ -28,7 +28,7 @@ public class CustomerRestExceptionHandler {
         ResponseDto responseDtoError = new ResponseDto(ResultCode.BUSINESS_DATA_ERROR, ex.getMessage());
         return new ResponseEntity<>(responseDtoError, HttpStatus.BAD_REQUEST);
     }
-    @ExceptionHandler({ArrestNotFoundException.class})
+    @ExceptionHandler()
     private ResponseEntity<ResponseDto> handleArrestNotFoundException(ArrestNotFoundException ex){
         ResponseDto responseDtoError = new ResponseDto(ResultCode.BUSINESS_DATA_ERROR, ex.getMessage());
         return new ResponseEntity<>(responseDtoError, HttpStatus.BAD_REQUEST);
