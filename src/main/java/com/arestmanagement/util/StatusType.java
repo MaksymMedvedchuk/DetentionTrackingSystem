@@ -9,12 +9,11 @@ import java.util.NoSuchElementException;
 @AllArgsConstructor
 public enum StatusType {
 
-    ACTIVE(1, "ACTIVE"),
-    COMPLETED(2, "COMPLETED"),
-    CANCELED(3, "CANCELED");
+    ACTIVE(1),
+    COMPLETED(2),
+    CANCELED(3);
 
     private final Integer code;
-    private final String type;
 
     public static StatusType getByCode(Integer code) {
         for (StatusType element : StatusType.values()) {

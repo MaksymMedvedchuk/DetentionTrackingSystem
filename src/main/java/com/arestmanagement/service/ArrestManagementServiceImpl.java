@@ -34,8 +34,8 @@ public class ArrestManagementServiceImpl implements ArrestManagementService {
         organCodeMatchValidator.validateOrganCodeMatch(request);
         OperationType operationType = request.getArrestDto().getOperation();
         if (operationType == OperationType.PRIMARY) return processPrimary(request);
-        else if (operationType == OperationType.CHANGED) return processChanged(request);
-        else return processCanceled(request);
+        if (operationType == OperationType.CHANGED) return processChanged(request);
+        return processCanceled(request);
     }
 
     private ResponseDto processPrimary(ArrestRequestDto request) {
@@ -45,7 +45,7 @@ public class ArrestManagementServiceImpl implements ArrestManagementService {
         return buildResponseDto(arrest);
     }
 
-    Arrest convertArrestToEntity(ArrestRequestDto request, Person person) {
+    private Arrest convertArrestToEntity(ArrestRequestDto request, Person person) {
         return Arrest.builder()
                 .organizationCode(request.getOrganCode())
                 .docDate(request.getArrestDto().getDocDate())
@@ -68,9 +68,9 @@ public class ArrestManagementServiceImpl implements ArrestManagementService {
         return buildResponseDto(arrest);
     }
 
-    private ResponseDto buildResponseDto(Arrest updateArrest) {
+    private ResponseDto buildResponseDto(Arrest arrest) {
         ResponseDto responseDto = new ResponseDto();
-        responseDto.setArrestId(updateArrest.getId());
+        responseDto.setArrestId(arrest.getId());
         responseDto.setResultCode(ResultCode.SUCCESS);
         return responseDto;
     }
@@ -83,7 +83,7 @@ public class ArrestManagementServiceImpl implements ArrestManagementService {
         return buildResponseDto(arrest);
     }
 
-    Person saveOrFindPerson(ArrestRequestDto request) {
+    private Person saveOrFindPerson(ArrestRequestDto request) {
         Pair<InternalIdentityDocumentType, String> internalIdentDoc = externalDataConverter.convertExternalToInternalData(request);
         String internalNumSeries = internalIdentDoc.getValue();
         InternalIdentityDocumentType internalDocType = internalIdentDoc.getKey();
@@ -93,7 +93,6 @@ public class ArrestManagementServiceImpl implements ArrestManagementService {
         return personRepository.save(person);
     }
 
-    //todo to test make private method package private and create test in the same package in test directory
     Person convertPersonToEntity(ArrestRequestDto request, String internalNumSeries, InternalIdentityDocumentType internalDocType) {
         return Person.builder()
                 .firstName(request.getFirstName())
@@ -104,7 +103,6 @@ public class ArrestManagementServiceImpl implements ArrestManagementService {
     }
 }
 
-//todo JUnit, Mockito (spring-boot-test-starter)
 
 
 

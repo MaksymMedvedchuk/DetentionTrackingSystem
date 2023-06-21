@@ -21,7 +21,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @ToString(exclude = "person")
 @Builder
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
 public class Arrest extends BaseEntity {
 
     @Column(name = "organ_code")

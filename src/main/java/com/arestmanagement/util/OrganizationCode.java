@@ -15,14 +15,14 @@ public enum OrganizationCode {
 
     private final Integer code;
 
-    public static OrganizationCode getByCode(Integer code) {//перебирає значення поки не знайде співпадіння
+    public static OrganizationCode getByCode(Integer code) {
         for (OrganizationCode element : OrganizationCode.values()) {
             if (element.getCode().equals(code)) return element;
         }
         throw new NoSuchElementException("No element for code " + code);
     }
 
-    @JsonValue//серіалізує значення в json
+    @JsonValue
     public Integer getCode() {
         return code;
     }

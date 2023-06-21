@@ -10,13 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
-@MappedSuperclass //для загальних полів
+@MappedSuperclass
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
 public class BaseEntity {
-    @Id //PK
-    @GeneratedValue(strategy = GenerationType.IDENTITY)// генерація ID
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 }

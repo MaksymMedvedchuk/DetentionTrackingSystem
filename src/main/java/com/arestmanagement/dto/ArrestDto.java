@@ -44,6 +44,4 @@ public class ArrestDto {
 
     @JsonProperty("Operation")
     private OperationType operation;
-
-
 }

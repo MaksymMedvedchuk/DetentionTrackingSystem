@@ -12,13 +12,10 @@ import java.util.NoSuchElementException;
 public enum InternalIdentityDocumentType {
 
 
-    PASSPORT(1, InternalIdentityDocumentType.PASSPORT_FORMAT),
-    FOREIGN_PASSPORT(2, InternalIdentityDocumentType.FOREIGN_PASSPORT_FORMAT);
+    PASSPORT(1),
+    FOREIGN_PASSPORT(2);
 
-    private static final String PASSPORT_FORMAT = "([0-9]{6})\\s([0-9]{2})\\s([0-9]{2})";
-    private static final String FOREIGN_PASSPORT_FORMAT = "([0-9]{6})\\s([0-9]{2})";
     private final Integer code;
-    private final String format;
 
     public static InternalIdentityDocumentType getByCode(Integer code) {
         for (InternalIdentityDocumentType element : InternalIdentityDocumentType.values()) {

@@ -30,18 +30,11 @@ public enum ExternalIdentityDocumentType {
     private final String replacer;
     private final InternalIdentityDocumentType internalType;
 
-    public static ExternalIdentityDocumentType getByCode(Integer code) {
-        for (ExternalIdentityDocumentType element : ExternalIdentityDocumentType.values()) {
-            if (element.getCode().equals(code)) return element;
-        }
-        throw new NoSuchElementException("No element for code " + code);
-    }
-
     public boolean doesOrganizationCorrespond(OrganizationCode organCode) {
         return this.organCode.equals(organCode);
     }
 
-    public String getInternalSeries(String externalSeries){
+    public String getInternalSeries(String externalSeries) {
         if (externalSeries.matches(this.format)) return externalSeries.replaceAll(this.format, this.replacer);
         throw new NoSuchElementException("You specified the wrong number series");
     }
@@ -50,6 +43,5 @@ public enum ExternalIdentityDocumentType {
     public Integer getCode() {
         return code;
     }
-
 }
 

@@ -5,27 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="547e7ebe-7c06-4470-af04-2e51e5686382" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/arestmanagement/converter/ExternalDataConverterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/arestmanagement/service/ArrestManagementServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/arestmanagement/validator/OrganCodeMatchValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/ArrestManagementSystem_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ArrestManagementSystem_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/59e8c7f9-87de-4971-8bd2-3843fc0ed1e9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/59e8c7f9-87de-4971-8bd2-3843fc0ed1e9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/59e8c7f9-87de-4971-8bd2-3843fc0ed1e9/storage_v2/_src_/database/CustomerArrestSystem.MvnhnA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/59e8c7f9-87de-4971-8bd2-3843fc0ed1e9/storage_v2/_src_/database/CustomerArrestSystem.MvnhnA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/ArrestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/ArrestApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/ExternalDataConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/ExternalDataConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/controller/ArrestManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/controller/ArrestManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/LocalDateConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/LocalDateConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/ArrestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/ArrestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/ArrestRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/ArrestRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/ResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/ResponseDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/Arrest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/Arrest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/BaseEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/exception/ArrestNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/exception/ArrestNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/exception/CustomerRestExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/exception/CustomerRestExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/exception/ValidationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/exception/ValidationException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/service/ArrestManagementServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/service/ArrestManagementServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/ExternalIdentityDocumentType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/ExternalIdentityDocumentType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/InternalIdentityDocumentType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/InternalIdentityDocumentType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/OperationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/OperationType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/OrganizationCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/OrganizationCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/ResultCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/ResultCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/StatusType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/StatusType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/validator/UuidValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/validator/UuidValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/arestmanagement/converter/ExternalDataConverterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/arestmanagement/converter/ExternalDataConverterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/arestmanagement/service/ArrestManagementServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/arestmanagement/service/ArrestManagementServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/arestmanagement/validator/OrganCodeMatchValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/arestmanagement/validator/OrganCodeMatchValidatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,8 +102,8 @@
       <command value="mvn dependency:tree" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ArrestManagementServiceTest.testProcessPrimary">
-    <configuration name="ArrestManagementServiceTest.testConvertArrestToEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ExternalDataConverterTest.testConvertExternalToInternalDataServiceOfBailiffsPassport">
+    <configuration name="ArrestManagementServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ArrestManagementSystem" />
       <extension name="coverage">
         <pattern>
@@ -106,13 +113,12 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.arestmanagement.service" />
       <option name="MAIN_CLASS_NAME" value="com.arestmanagement.service.ArrestManagementServiceTest" />
-      <option name="METHOD_NAME" value="testConvertArrestToEntity" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArrestManagementServiceTest.testConvertPersonToEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ArrestManagementServiceTest.processChangedToActiveStatus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ArrestManagementSystem" />
       <extension name="coverage">
         <pattern>
@@ -122,7 +128,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.arestmanagement.service" />
       <option name="MAIN_CLASS_NAME" value="com.arestmanagement.service.ArrestManagementServiceTest" />
-      <option name="METHOD_NAME" value="testConvertPersonToEntity" />
+      <option name="METHOD_NAME" value="processChangedToActiveStatus" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -185,11 +191,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ArrestManagementServiceTest.testProcessPrimary" />
-        <item itemvalue="JUnit.ArrestManagementServiceTest.testConvertArrestToEntity" />
-        <item itemvalue="JUnit.ArrestManagementServiceTest.testConvertPersonToEntity" />
-        <item itemvalue="JUnit.OrganCodeMatchValidatorTest.testIsNotValidateOrganCodeMatch" />
         <item itemvalue="JUnit.ExternalDataConverterTest.testConvertExternalToInternalDataServiceOfBailiffsPassport" />
+        <item itemvalue="JUnit.ArrestManagementServiceTest" />
+        <item itemvalue="JUnit.ArrestManagementServiceTest.processChangedToActiveStatus" />
+        <item itemvalue="JUnit.ArrestManagementServiceTest.testProcessPrimary" />
+        <item itemvalue="JUnit.OrganCodeMatchValidatorTest.testIsNotValidateOrganCodeMatch" />
       </list>
     </recent_temporary>
   </component>
@@ -273,7 +279,44 @@
       <workItem from="1682412390014" duration="4058000" />
       <workItem from="1682426360755" duration="2170000" />
       <workItem from="1682428557885" duration="14245000" />
-      <workItem from="1682512819251" duration="1874000" />
+      <workItem from="1682512819251" duration="16021000" />
+      <workItem from="1682584504097" duration="23728000" />
+      <workItem from="1682671859590" duration="6467000" />
+      <workItem from="1682686562649" duration="9687000" />
+      <workItem from="1682932231973" duration="855000" />
+      <workItem from="1682933569818" duration="3510000" />
+      <workItem from="1683103348543" duration="61000" />
+      <workItem from="1683836792271" duration="104000" />
+      <workItem from="1683920519029" duration="29000" />
+      <workItem from="1684313473956" duration="7000" />
+      <workItem from="1684318874891" duration="10000" />
+      <workItem from="1684332247703" duration="5000" />
+      <workItem from="1684418261474" duration="1874000" />
+      <workItem from="1684434069262" duration="3979000" />
+      <workItem from="1684479990305" duration="9844000" />
+      <workItem from="1684749674800" duration="10000" />
+      <workItem from="1684783562181" duration="216000" />
+      <workItem from="1684840934360" duration="1456000" />
+      <workItem from="1684866646574" duration="603000" />
+      <workItem from="1685380387924" duration="55000" />
+      <workItem from="1685440741991" duration="725000" />
+      <workItem from="1685452130950" duration="324000" />
+      <workItem from="1685452640034" duration="656000" />
+      <workItem from="1685474562254" duration="18000" />
+      <workItem from="1685538791635" duration="1620000" />
+      <workItem from="1685627499309" duration="4914000" />
+      <workItem from="1685640943596" duration="3917000" />
+      <workItem from="1686048403646" duration="645000" />
+      <workItem from="1686049569256" duration="13000" />
+      <workItem from="1686049689810" duration="601000" />
+      <workItem from="1686146491029" duration="11000" />
+      <workItem from="1686159520651" duration="679000" />
+      <workItem from="1686229813836" duration="8000" />
+      <workItem from="1686231301940" duration="40000" />
+      <workItem from="1686652711503" duration="624000" />
+      <workItem from="1686750805460" duration="900000" />
+      <workItem from="1687295692443" duration="27000" />
+      <workItem from="1687338359298" duration="1532000" />
     </task>
     <servers />
   </component>

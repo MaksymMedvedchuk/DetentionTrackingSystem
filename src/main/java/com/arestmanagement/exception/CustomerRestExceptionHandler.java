@@ -3,7 +3,6 @@ package com.arestmanagement.exception;
 import com.arestmanagement.dto.ResponseDto;
 import com.arestmanagement.util.ResultCode;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.sun.media.sound.InvalidFormatException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +27,9 @@ public class CustomerRestExceptionHandler {
         ResponseDto responseDtoError = new ResponseDto(ResultCode.BUSINESS_DATA_ERROR, ex.getMessage());
         return new ResponseEntity<>(responseDtoError, HttpStatus.BAD_REQUEST);
     }
+
     @ExceptionHandler()
-    private ResponseEntity<ResponseDto> handleArrestNotFoundException(ArrestNotFoundException ex){
+    private ResponseEntity<ResponseDto> handleArrestNotFoundException(ArrestNotFoundException ex) {
         ResponseDto responseDtoError = new ResponseDto(ResultCode.BUSINESS_DATA_ERROR, ex.getMessage());
         return new ResponseEntity<>(responseDtoError, HttpStatus.BAD_REQUEST);
     }

@@ -3,12 +3,12 @@ package com.arestmanagement.entity;
 import com.arestmanagement.converter.InnerIdentityDocumentTypeConverter;
 import com.arestmanagement.converter.LocalDateConverter;
 import com.arestmanagement.util.InternalIdentityDocumentType;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -20,8 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-//todo warning
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
 public class Person extends BaseEntity {
 
     @Column(name = "first_name")
@@ -54,5 +53,4 @@ public class Person extends BaseEntity {
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private List<Arrest> arrests;
-
 }

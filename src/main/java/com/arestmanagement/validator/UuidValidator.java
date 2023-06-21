@@ -1,6 +1,5 @@
 package com.arestmanagement.validator;
 
-
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import javax.validation.constraints.Pattern;
@@ -16,8 +15,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Pattern(regexp = "^[\\da-f]{8}-[\\da-f]{4}-[1-5][\\da-f]{3}-[89ab][\\da-f]{3}-[\\da-f]{12}$")
 public @interface UuidValidator {
     String message() default "{invalid.uuid}";
-
     Class<?>[] groups() default {};
-
     Class<? extends Payload>[] payload() default {};
 }
