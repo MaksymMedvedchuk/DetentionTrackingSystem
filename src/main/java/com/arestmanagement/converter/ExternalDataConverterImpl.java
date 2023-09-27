@@ -3,7 +3,7 @@ package com.arestmanagement.converter;
 import com.arestmanagement.dto.ArrestRequestDto;
 import com.arestmanagement.util.ExternalIdentityDocumentType;
 import com.arestmanagement.util.InternalIdentityDocumentType;
-import javafx.util.Pair;
+import com.arestmanagement.util.Pair;
 import org.springframework.stereotype.Component;
 
 @Component

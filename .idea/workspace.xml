@@ -5,29 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="547e7ebe-7c06-4470-af04-2e51e5686382" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/swagger/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/Pair.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/ArrestManagementSystem_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ArrestManagementSystem_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/59e8c7f9-87de-4971-8bd2-3843fc0ed1e9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/59e8c7f9-87de-4971-8bd2-3843fc0ed1e9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/59e8c7f9-87de-4971-8bd2-3843fc0ed1e9/storage_v2/_src_/database/CustomerArrestSystem.MvnhnA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/59e8c7f9-87de-4971-8bd2-3843fc0ed1e9/storage_v2/_src_/database/CustomerArrestSystem.MvnhnA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/ArrestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/ArrestApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/controller/ArrestManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/controller/ArrestManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/ExternalDataConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/ExternalDataConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/ExternalDataConverterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/ExternalDataConverterImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/InnerIdentityDocumentTypeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/InnerIdentityDocumentTypeConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/LocalDateConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/LocalDateConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/OrganizationCodeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/OrganizationCodeConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/StatusTypeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/StatusTypeConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/ArrestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/ArrestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/ResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/ResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/ArrestRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/ArrestRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/IdentityDocumentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/dto/IdentityDocumentDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/Arrest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/Arrest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/BaseEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/entity/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/exception/CustomerRestExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/exception/CustomerRestExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/exception/ValidationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/exception/ValidationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/repository/PersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/repository/PersonRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/service/ArrestManagementServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/service/ArrestManagementServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/ExternalIdentityDocumentType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/ExternalIdentityDocumentType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/InternalIdentityDocumentType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/InternalIdentityDocumentType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/OperationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/OperationType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/OrganizationCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/OrganizationCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/ResultCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/ResultCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/StatusType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/util/StatusType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/arestmanagement/validator/UuidValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arestmanagement/validator/UuidValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/arestmanagement/converter/ExternalDataConverterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/arestmanagement/converter/ExternalDataConverterTest.java" afterDir="false" />
@@ -51,8 +53,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0-sources.jar!/jakarta/persistence/AttributeConverter.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/arestmanagement/ArrestApplication.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/ExternalDataConverterImpl.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/LocalDateConverter.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/arestmanagement/converter/OrganizationCodeConverter.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/arestmanagement/swagger/SwaggerConfig.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/com/arestmanagement/converter/ExternalDataConverterTest.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/com/arestmanagement/service/ArrestManagementServiceTest.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2Mn6vnGtYjsB4H0uDpc5Hj5nzjr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -60,35 +75,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelOrder2&quot;: &quot;2&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth2&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/po1ak/IdeaProjects/ArrestManagementSystem&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;8764a4d2acb693fa07eea17e606a831d&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelOrder2": "2",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RequestMappingsPanelWidth2": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/po1ak/.m2/repository/io/swagger/core/v3/swagger-annotations-jakarta/2.2.7/swagger-annotations-jakarta-2.2.7.jar",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "spring.configuration.checksum": "8764a4d2acb693fa07eea17e606a831d"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
-      &quot;PostgreSQL&quot;
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "PostgreSQL"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\po1ak\IdeaProjects\ArrestManagementSystem\src\main\resources\database" />
@@ -102,7 +117,14 @@
       <command value="mvn dependency:tree" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ExternalDataConverterTest.testConvertExternalToInternalDataServiceOfBailiffsPassport">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ArrestApplication">
     <configuration name="ArrestManagementServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ArrestManagementSystem" />
       <extension name="coverage">
@@ -191,10 +213,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ExternalDataConverterTest.testConvertExternalToInternalDataServiceOfBailiffsPassport" />
         <item itemvalue="JUnit.ArrestManagementServiceTest" />
-        <item itemvalue="JUnit.ArrestManagementServiceTest.processChangedToActiveStatus" />
         <item itemvalue="JUnit.ArrestManagementServiceTest.testProcessPrimary" />
+        <item itemvalue="JUnit.ExternalDataConverterTest.testConvertExternalToInternalDataServiceOfBailiffsPassport" />
+        <item itemvalue="JUnit.ArrestManagementServiceTest.processChangedToActiveStatus" />
         <item itemvalue="JUnit.OrganCodeMatchValidatorTest.testIsNotValidateOrganCodeMatch" />
       </list>
     </recent_temporary>
@@ -316,7 +338,42 @@
       <workItem from="1686652711503" duration="624000" />
       <workItem from="1686750805460" duration="900000" />
       <workItem from="1687295692443" duration="27000" />
-      <workItem from="1687338359298" duration="1532000" />
+      <workItem from="1687338359298" duration="8635000" />
+      <workItem from="1687972105956" duration="1000" />
+      <workItem from="1687986470127" duration="1217000" />
+      <workItem from="1688663978929" duration="1157000" />
+      <workItem from="1688746888629" duration="5000" />
+      <workItem from="1688749490598" duration="746000" />
+      <workItem from="1688995831195" duration="12000" />
+      <workItem from="1688995860208" duration="99000" />
+      <workItem from="1688996001969" duration="7000" />
+      <workItem from="1688996650104" duration="24000" />
+      <workItem from="1689345508422" duration="628000" />
+      <workItem from="1689763142164" duration="108000" />
+      <workItem from="1689876761900" duration="17000" />
+      <workItem from="1690208513188" duration="911000" />
+      <workItem from="1690458023964" duration="4802000" />
+      <workItem from="1690823991472" duration="103000" />
+      <workItem from="1691139029032" duration="175000" />
+      <workItem from="1693558634103" duration="136000" />
+      <workItem from="1694171607443" duration="1755000" />
+      <workItem from="1694614881838" duration="74000" />
+      <workItem from="1694617627467" duration="45000" />
+      <workItem from="1694618221701" duration="638000" />
+      <workItem from="1694633433445" duration="22000" />
+      <workItem from="1694767344503" duration="14000" />
+      <workItem from="1694769311596" duration="2000" />
+      <workItem from="1694769329195" duration="551000" />
+      <workItem from="1694774367147" duration="826000" />
+      <workItem from="1694782682409" duration="449000" />
+      <workItem from="1694801066966" duration="5000" />
+      <workItem from="1695065439008" duration="216000" />
+      <workItem from="1695639418446" duration="19000" />
+      <workItem from="1695639457191" duration="598000" />
+      <workItem from="1695805461392" duration="15949000" />
+      <workItem from="1695827008089" duration="1509000" />
+      <workItem from="1695828540838" duration="4685000" />
+      <workItem from="1695833775626" duration="2206000" />
     </task>
     <servers />
   </component>

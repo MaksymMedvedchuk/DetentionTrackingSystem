@@ -3,12 +3,17 @@ package com.arestmanagement.entity;
 import com.arestmanagement.converter.InnerIdentityDocumentTypeConverter;
 import com.arestmanagement.converter.LocalDateConverter;
 import com.arestmanagement.util.InternalIdentityDocumentType;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
-import javax.persistence.*;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.PastOrPresent;
-import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.List;
 

@@ -10,10 +10,10 @@ import com.arestmanagement.repository.ArrestRepository;
 import com.arestmanagement.repository.PersonRepository;
 import com.arestmanagement.util.InternalIdentityDocumentType;
 import com.arestmanagement.util.OperationType;
+import com.arestmanagement.util.Pair;
 import com.arestmanagement.util.ResultCode;
 import com.arestmanagement.util.StatusType;
 import com.arestmanagement.validator.OrganCodeMatchValidator;
-import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -84,6 +84,7 @@ public class ArrestManagementServiceImpl implements ArrestManagementService {
     }
 
     private Person saveOrFindPerson(ArrestRequestDto request) {
+
         Pair<InternalIdentityDocumentType, String> internalIdentDoc = externalDataConverter.convertExternalToInternalData(request);
         String internalNumSeries = internalIdentDoc.getValue();
         InternalIdentityDocumentType internalDocType = internalIdentDoc.getKey();

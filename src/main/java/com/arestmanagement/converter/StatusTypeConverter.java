@@ -1,9 +1,8 @@
 package com.arestmanagement.converter;
 
 import com.arestmanagement.util.StatusType;
-
-import javax.persistence.AttributeConverter;
-import javax.persistence.Convert;
+import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Convert;
 
 @Convert
 public class StatusTypeConverter implements AttributeConverter<StatusType, Integer> {

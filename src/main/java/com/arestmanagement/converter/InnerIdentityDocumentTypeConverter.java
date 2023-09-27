@@ -1,8 +1,7 @@
 package com.arestmanagement.converter;
 
 import com.arestmanagement.util.InternalIdentityDocumentType;
-
-import javax.persistence.AttributeConverter;
+import jakarta.persistence.AttributeConverter;
 
 public class InnerIdentityDocumentTypeConverter implements AttributeConverter<InternalIdentityDocumentType, Integer> {
     @Override

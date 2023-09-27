@@ -3,9 +3,14 @@ package com.arestmanagement.dto;
 import com.arestmanagement.util.OperationType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
-import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @ToString

@@ -5,12 +5,19 @@ import com.arestmanagement.converter.OrganizationCodeConverter;
 import com.arestmanagement.converter.StatusTypeConverter;
 import com.arestmanagement.util.OrganizationCode;
 import com.arestmanagement.util.StatusType;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
-import javax.persistence.*;
-import javax.validation.constraints.PastOrPresent;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Entity
