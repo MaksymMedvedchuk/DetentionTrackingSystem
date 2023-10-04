@@ -3,7 +3,13 @@ package com.arestmanagement.dto;
 import com.arestmanagement.util.ResultCode;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor
@@ -15,17 +21,17 @@ import lombok.*;
 @Builder
 public class ResponseDto {
 
-    @JsonProperty("ArrestId")
-    private Long arrestId;
+	@JsonProperty("ArrestId")
+	private Long arrestId;
 
-    @JsonProperty("ResultCode")
-    private ResultCode resultCode;
+	@JsonProperty("ResultCode")
+	private ResultCode resultCode;
 
-    @JsonProperty("ResultText")
-    private String resultText;
+	@JsonProperty("ResultText")
+	private String resultText;
 
-    public ResponseDto(ResultCode resultCode, String resultText) {
-        this.resultCode = resultCode;
-        this.resultText = resultText;
-    }
+	public ResponseDto(ResultCode resultCode, String resultText) {
+		this.resultCode = resultCode;
+		this.resultText = resultText;
+	}
 }
