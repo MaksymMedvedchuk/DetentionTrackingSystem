@@ -14,5 +14,6 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
     Optional<Person> findPerson(@Param("firstName") String firstName,
                                 @Param("lastName") String lastName,
                                 @Param("identDocType") InternalIdentityDocumentType docType,
+
                                 @Param("docNumberSeries") String docNumberSeries);
 }
