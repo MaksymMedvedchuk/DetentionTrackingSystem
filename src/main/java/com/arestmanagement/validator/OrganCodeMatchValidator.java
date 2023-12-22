@@ -1,6 +1,6 @@
 package com.arestmanagement.validator;
 
-import com.arestmanagement.dto.ArrestRequestDto;
+import com.arestmanagement.core.domain.dto.ArrestRequestDto;
 
 public interface OrganCodeMatchValidator {
 
