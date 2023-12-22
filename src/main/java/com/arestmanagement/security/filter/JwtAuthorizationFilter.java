@@ -5,7 +5,6 @@ import com.arestmanagement.security.model.AuthUser;
 import com.arestmanagement.security.model.CustomUserServiceDetails;
 import com.arestmanagement.security.service.AccessTokenInvalidationService;
 import com.arestmanagement.security.service.JwtTokenAuthenticationService;
-import com.arestmanagement.security.tokengenerator.TokenSecretKey;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

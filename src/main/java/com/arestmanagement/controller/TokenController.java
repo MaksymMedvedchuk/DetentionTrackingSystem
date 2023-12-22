@@ -29,7 +29,8 @@ public class TokenController {
 	private final JwtTokenAuthenticationService jwtTokenAuthenticationService;
 
 	public TokenController(
-		final ConvertTokenData convertTokenData, final TokenService tokenService,
+		final ConvertTokenData convertTokenData,
+		final TokenService tokenService,
 		final JwtTokenAuthenticationService jwtTokenAuthenticationService
 	) {
 		this.convertTokenData = convertTokenData;
