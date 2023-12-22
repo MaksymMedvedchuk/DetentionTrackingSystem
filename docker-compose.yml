@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: db-arrest-postgres
+    ports:
+      - 5433:5432
+    expose:
+      - "5433"
+    environment:
+      POSTGRES_DB: CustomerArrestSystem
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 3346
+
+  backend:
+    container_name: backend
+    build:
+      context: ..
+      dockerfile: ArrestManagementSystem/docker/builder/DockerFile
+      args:
+        BUILD_PATH: ArrestManagementSystem
+    ports:
+      - "8087:80"
+    environment:
+      - SERVER_PORT=80
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db/CustomerArrestSystem
+    depends_on:
+      - db
+
+

@@ -1,9 +1,9 @@
 package com.arestmanagement.validator;
 
-import com.arestmanagement.dto.ArrestRequestDto;
-import com.arestmanagement.exception.ValidationException;
-import com.arestmanagement.util.ExternalIdentityDocumentType;
-import com.arestmanagement.util.OrganizationCode;
+import com.arestmanagement.core.domain.dto.ArrestRequestDto;
+import com.arestmanagement.core.exception.ValidationException;
+import com.arestmanagement.core.domain.enums.ExternalIdentityDocumentType;
+import com.arestmanagement.core.domain.enums.OrganizationCode;
 import org.springframework.stereotype.Component;
 
 @Component
