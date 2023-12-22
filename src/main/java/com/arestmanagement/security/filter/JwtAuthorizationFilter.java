@@ -26,19 +26,15 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
 
 	private final JwtTokenAuthenticationService jwtTokenAuthenticationService;
 
-	private final TokenSecretKey tokenSecretKey;
-
 	private final AccessTokenInvalidationService accessTokenInvalidationService;
 
 	public JwtAuthorizationFilter(
 		final CustomUserServiceDetails customUserServiceDetails,
 		final JwtTokenAuthenticationService jwtTokenAuthenticationService,
-		final TokenSecretKey tokenSecretKey,
 		final AccessTokenInvalidationService accessTokenInvalidationService
 	) {
 		this.customUserServiceDetails = customUserServiceDetails;
 		this.jwtTokenAuthenticationService = jwtTokenAuthenticationService;
-		this.tokenSecretKey = tokenSecretKey;
 		this.accessTokenInvalidationService = accessTokenInvalidationService;
 	}
 

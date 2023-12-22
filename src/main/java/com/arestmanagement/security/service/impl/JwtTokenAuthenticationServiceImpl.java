@@ -45,8 +45,6 @@ public class JwtTokenAuthenticationServiceImpl implements JwtTokenAuthentication
 
 	private final HandlerExceptionResolver resolver;
 
-	private final AccessTokenInvalidationService accessTokenInvalidationService;
-
 	public JwtTokenAuthenticationServiceImpl(
 		final TokenSecretKey tokenSecretKey,
 		final TokenService tokenService,
@@ -54,8 +52,7 @@ public class JwtTokenAuthenticationServiceImpl implements JwtTokenAuthentication
 		final UserService userService,
 		final AccessTokenService accessTokenService,
 		final RefreshTokenService refreshTokenService,
-		@Qualifier("handlerExceptionResolver") final HandlerExceptionResolver resolver,
-		final AccessTokenInvalidationService accessTokenInvalidationService
+		@Qualifier("handlerExceptionResolver") final HandlerExceptionResolver resolver
 	) {
 		this.tokenSecretKey = tokenSecretKey;
 		this.tokenService = tokenService;
@@ -64,7 +61,6 @@ public class JwtTokenAuthenticationServiceImpl implements JwtTokenAuthentication
 		this.accessTokenService = accessTokenService;
 		this.refreshTokenService = refreshTokenService;
 		this.resolver = resolver;
-		this.accessTokenInvalidationService = accessTokenInvalidationService;
 	}
 
 	@Override

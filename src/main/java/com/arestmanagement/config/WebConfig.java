@@ -31,23 +31,15 @@ public class WebConfig {
 
 	private final JwtTokenAuthenticationService jwtTokenAuthenticationService;
 
-	private final ObjectMapper objectMapper;
-
-	private final TokenSecretKey tokenSecretKey;
-
 	private final AccessTokenInvalidationService accessTokenInvalidationService;
 
 	public WebConfig(
 		final CustomUserServiceDetails customUserServiceDetails,
 		final JwtTokenAuthenticationService jwtTokenAuthenticationService,
-		final ObjectMapper objectMapper,
-		final TokenSecretKey tokenSecretKey,
 		final AccessTokenInvalidationService accessTokenInvalidationService
 	) {
 		this.customUserServiceDetails = customUserServiceDetails;
 		this.jwtTokenAuthenticationService = jwtTokenAuthenticationService;
-		this.objectMapper = objectMapper;
-		this.tokenSecretKey = tokenSecretKey;
 		this.accessTokenInvalidationService = accessTokenInvalidationService;
 	}
 
@@ -77,7 +69,7 @@ public class WebConfig {
 
 	@Bean
 	public JwtAuthorizationFilter jwtAuthorizationFilter() {
-		return new JwtAuthorizationFilter(customUserServiceDetails, jwtTokenAuthenticationService, tokenSecretKey,
+		return new JwtAuthorizationFilter(customUserServiceDetails, jwtTokenAuthenticationService,
 			accessTokenInvalidationService
 		);
 	}

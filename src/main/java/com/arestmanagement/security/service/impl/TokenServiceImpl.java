@@ -22,19 +22,14 @@ public class TokenServiceImpl implements TokenService {
 
 	private final TokenRepository tokenRepository;
 
-	private final TokenSecretKey tokenSecretKey;
-
 	private final DataTimeService dataTimeService;
 
 	public TokenServiceImpl(
 
 		final TokenRepository tokenRepository,
-		final TokenSecretKey tokenSecretKey,
 		final DataTimeService dataTimeService
 	) {
-
 		this.tokenRepository = tokenRepository;
-		this.tokenSecretKey = tokenSecretKey;
 		this.dataTimeService = dataTimeService;
 	}
 
