@@ -1,8 +1,8 @@
-Arrest Management System for Clients
+Offense Management System for Clients
 -
 Overview
 -
-This project is an application for managing arrests related to clients. It's a server application that provides the necessary API to handle arrests. When the application starts, it checks for the existence of tables and creates them if necessary.
+This project is an application for managing offenses of persons. It's a server application that provides the necessary API to handle offenses. When the application starts, it checks for the existence of tables and creates them if necessary.
 
 System Objects
 ----
