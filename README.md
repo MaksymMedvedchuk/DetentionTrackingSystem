@@ -1,8 +1,8 @@
-Offense Management System for Clients
+Detention tracking system for persons
 -
 Overview
 -
-This project is an application for managing offenses of persons. It's a server application that provides the necessary API to handle offenses. When the application starts, it checks for the existence of tables and creates them if necessary.
+It's a server application that provides API to handle detentions of persons.
 
 System Objects
 ----
