@@ -177,7 +177,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.arestmanagement.ArrestApplication</mainClass>
+                            <mainClass>com.detentionsystem.DetentionApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
