@@ -21,7 +21,7 @@ import java.util.List;
 @Table(name = "persons")
 @Getter
 @Setter
-@ToString(exclude = "arrests")
+@ToString(exclude = "detentions")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -57,7 +57,7 @@ public class Person extends BaseEntity {
     private LocalDate issueDate;
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
-    private List<Arrest> arrests;
+    private List<Detention> detentions;
 
     @Column(unique = true, nullable = false)
     private String email;

@@ -47,8 +47,8 @@ public class WebConfig {
 				authorizeRequests
 					.requestMatchers(SWAGGER_PATHS).permitAll()
 					.requestMatchers(HttpMethod.DELETE, "/v1.0/user/delete/*").hasRole("PERSONE")
-					.requestMatchers(HttpMethod.POST, "/arrestManagement/create_arrest").hasRole("ADMIN")
-					.requestMatchers(HttpMethod.GET, "/arrestManagement/get_arrest/*").hasAnyRole("ADMIN", "PERSONE")
+					.requestMatchers(HttpMethod.POST, "/detention/create").hasRole("ADMIN")
+					.requestMatchers(HttpMethod.GET, "/detention/get/*").hasAnyRole("ADMIN", "PERSONE")
 					.requestMatchers(HttpMethod.POST,
 						"/v1.0/auth/registration",
 						"/v1.0/auth/login",

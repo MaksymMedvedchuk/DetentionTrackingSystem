@@ -21,7 +21,7 @@ import lombok.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "arrests")
+@Table(name = "detentions")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -29,7 +29,7 @@ import java.time.LocalDate;
 @ToString(exclude = "person")
 @Builder
 @EqualsAndHashCode(callSuper = false)
-public class Arrest extends BaseEntity {
+public class Detention extends BaseEntity {
 
     @Column(name = "organ_code")
     @Convert(converter = OrganizationCodeConverter.class)

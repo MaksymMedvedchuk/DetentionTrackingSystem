@@ -1,10 +1,10 @@
 package com.detentionsystem.validator;
 
-import com.detentionsystem.core.domain.dto.ArrestRequestDto;
+import com.detentionsystem.core.domain.dto.DetentionRequestDto;
 
 public interface OrganCodeMatchValidator {
 
-    void validateOrganCodeMatch(ArrestRequestDto requestDto);
+    void validateOrganCodeMatch(DetentionRequestDto requestDto);
 }
 
 

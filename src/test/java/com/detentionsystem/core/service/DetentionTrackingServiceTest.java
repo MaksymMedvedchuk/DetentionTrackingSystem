@@ -1,14 +1,14 @@
 package com.detentionsystem.core.service;
 
 import com.detentionsystem.core.converter.ExternalDataConverterImpl;
-import com.detentionsystem.core.domain.dto.ArrestDto;
-import com.detentionsystem.core.domain.dto.ArrestRequestDto;
+import com.detentionsystem.core.domain.dto.DetentionDto;
+import com.detentionsystem.core.domain.dto.DetentionRequestDto;
 import com.detentionsystem.core.domain.dto.IdentityDocumentDto;
 import com.detentionsystem.core.domain.dto.ResponseDto;
-import com.detentionsystem.core.domain.entity.Arrest;
+import com.detentionsystem.core.domain.entity.Detention;
 import com.detentionsystem.core.domain.entity.Person;
-import com.detentionsystem.core.exception.ArrestNotFoundException;
-import com.detentionsystem.core.repository.ArrestRepository;
+import com.detentionsystem.core.exception.DetentionNotFoundException;
+import com.detentionsystem.core.repository.DetentionRepository;
 import com.detentionsystem.core.domain.enums.ExternalIdentityDocumentType;
 import com.detentionsystem.core.domain.enums.InternalIdentityDocumentType;
 import com.detentionsystem.core.domain.enums.OperationType;
@@ -34,21 +34,21 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ArrestManagementServiceTest {
+public class DetentionTrackingServiceTest {
 
 	@InjectMocks
-	private ArrestManagementServiceImpl arrestManagementService;
+	private DetentionTrackingServiceImpl arrestManagementService;
 	@Mock
 	private ExternalDataConverterImpl mockExternalDataConverter;
 	@Mock
 	private PersonRepository mockPersonRepository;
 	@Mock
-	private ArrestRepository mockArrestRepository;
+	private DetentionRepository mockDetentionRepository;
 	@Mock
 	private OrganCodeMatchValidator mockOrganCodeMatchValidator;
 
-	public static ArrestRequestDto createRequest(Long amount, OperationType operationType) {
-		return ArrestRequestDto.builder()
+	public static DetentionRequestDto createRequest(Long amount, OperationType operationType) {
+		return DetentionRequestDto.builder()
 			.id(1L)
 			.firstName("Maks")
 			.lastName("Medvedchuk")
@@ -58,7 +58,7 @@ public class ArrestManagementServiceTest {
 				.numberSeries("666666-9911")
 				.issueDate(LocalDate.of(2022, 10, 1))
 				.build())
-			.arrestDto(ArrestDto.builder()
+			.detentionDto(DetentionDto.builder()
 				.docDate(LocalDate.of(2022, 10, 12))
 				.docNum("yu544-1567456")
 				.purpose("purpose")
@@ -72,10 +72,10 @@ public class ArrestManagementServiceTest {
 	@Test
 	@Before
 	public void testProcessPrimary() {
-		ArrestRequestDto request = createRequest(1200L, OperationType.PRIMARY);
+		DetentionRequestDto request = createRequest(1200L, OperationType.PRIMARY);
 		Person expectedPerson = createPerson();
 		Long expectedAmount = 1200L;
-		Arrest expectedArrest = createArrest(expectedPerson, expectedAmount);
+		Detention expectedDetention = createArrest(expectedPerson, expectedAmount);
 		String expectedInternalDocNum = "666666 99 11";
 		when(mockExternalDataConverter.convertExternalToInternalData(request))
 			.thenReturn(new Pair<>(InternalIdentityDocumentType.PASSPORT, expectedInternalDocNum));
@@ -85,57 +85,60 @@ public class ArrestManagementServiceTest {
 			expectedInternalDocNum
 		)).thenReturn(Optional.of(expectedPerson));
 		when(mockPersonRepository.save(expectedPerson)).thenReturn(expectedPerson);
-		when(mockArrestRepository.save(expectedArrest)).thenReturn(expectedArrest);
-		ResponseDto expectedResponse = createResponse(expectedArrest);
+		when(mockDetentionRepository.save(expectedDetention)).thenReturn(expectedDetention);
+		ResponseDto expectedResponse = createResponse(expectedDetention);
 		ResponseDto actualResponse = arrestManagementService.processRequest(request);
 		assertEquals(expectedResponse, actualResponse);
 	}
 
 	@Test
 	public void processChangedToActiveStatus() {
-		ArrestRequestDto request = createRequest(1500L, OperationType.CHANGED);
-		Arrest arrest = createArrest(2000L);
-		when(mockArrestRepository.save(arrest)).thenReturn(arrest);
-		when(mockArrestRepository.findByDocNum(request.getArrestDto().getRefDocNum())).thenReturn(Optional.of(arrest));
+		DetentionRequestDto request = createRequest(1500L, OperationType.CHANGED);
+		Detention detention = createArrest(2000L);
+		when(mockDetentionRepository.save(detention)).thenReturn(detention);
+		when(mockDetentionRepository.findByDocNum(request.getDetentionDto().getRefDocNum())).thenReturn(Optional.of(
+			detention));
 		ResponseDto actualResponse = arrestManagementService.processRequest(request);
-		ResponseDto expectedResponse = createResponse(arrest);
+		ResponseDto expectedResponse = createResponse(detention);
 		assertEquals(expectedResponse, actualResponse);
 	}
 
 	@Test
 	public void processChangedToActiveStatusIfArrestEmpty() {
-		ArrestRequestDto request = createRequest(1500L, OperationType.CHANGED);
-		Arrest arrest = createArrest(2000L);
-		when(mockArrestRepository.save(arrest)).thenReturn(arrest);
-		when(mockArrestRepository.findByDocNum(request.getArrestDto().getRefDocNum())).thenReturn(Optional.empty());
-		assertThrows(ArrestNotFoundException.class, () -> arrestManagementService.processRequest(request));
+		DetentionRequestDto request = createRequest(1500L, OperationType.CHANGED);
+		Detention detention = createArrest(2000L);
+		when(mockDetentionRepository.save(detention)).thenReturn(detention);
+		when(mockDetentionRepository.findByDocNum(request.getDetentionDto().getRefDocNum())).thenReturn(Optional.empty());
+		assertThrows(DetentionNotFoundException.class, () -> arrestManagementService.processRequest(request));
 	}
 
 	@Test
 	public void processChangedToCanceledStatus() {
-		ArrestRequestDto request = createRequest(1500L, OperationType.CHANGED);
-		Arrest arrest = createArrest(200L);
-		when(mockArrestRepository.findByDocNum(request.getArrestDto().getRefDocNum())).thenReturn(Optional.of(arrest));
-		when(mockArrestRepository.save(arrest)).thenReturn(arrest);
+		DetentionRequestDto request = createRequest(1500L, OperationType.CHANGED);
+		Detention detention = createArrest(200L);
+		when(mockDetentionRepository.findByDocNum(request.getDetentionDto().getRefDocNum())).thenReturn(Optional.of(
+			detention));
+		when(mockDetentionRepository.save(detention)).thenReturn(detention);
 		ResponseDto actualResponse = arrestManagementService.processRequest(request);
-		ResponseDto expectedResponse = createResponse(arrest);
+		ResponseDto expectedResponse = createResponse(detention);
 		assertEquals(expectedResponse, actualResponse);
 	}
 
 	@Test
 	public void testProcessCanceled() {
-		ArrestRequestDto request = createRequest(1500L, OperationType.CANCELED);
-		Arrest arrest = createArrest(1200L);
-		when(mockArrestRepository.findByDocNum(request.getArrestDto().getRefDocNum())).thenReturn(Optional.of(arrest));
-		when(mockArrestRepository.save(arrest)).thenReturn(arrest);
-		ResponseDto expectedResponse = createResponse(arrest);
+		DetentionRequestDto request = createRequest(1500L, OperationType.CANCELED);
+		Detention detention = createArrest(1200L);
+		when(mockDetentionRepository.findByDocNum(request.getDetentionDto().getRefDocNum())).thenReturn(Optional.of(
+			detention));
+		when(mockDetentionRepository.save(detention)).thenReturn(detention);
+		ResponseDto expectedResponse = createResponse(detention);
 		ResponseDto actualResponse = arrestManagementService.processRequest(request);
 		assertEquals(expectedResponse, actualResponse);
 	}
 
 	@Test
 	public void testConvertPersonToEntity() {
-		ArrestRequestDto request = new ArrestRequestDto();
+		DetentionRequestDto request = new DetentionRequestDto();
 		request.setFirstName("Maks");
 		request.setLastName("Medvedchuk");
 		String internalNumSeries = "666666 99 11";
@@ -149,7 +152,7 @@ public class ArrestManagementServiceTest {
 
 	@Test
 	public void testConvertPersonToEntityDataMismatch() {
-		ArrestRequestDto request = new ArrestRequestDto();
+		DetentionRequestDto request = new DetentionRequestDto();
 		request.setFirstName("Mak");
 		request.setLastName("Medvedchuk");
 		String internalNumSeries = "666666 99 11";
@@ -161,15 +164,15 @@ public class ArrestManagementServiceTest {
 		assertNotEquals(expectedPerson, actualPerson);
 	}
 
-	private ResponseDto createResponse(Arrest actualArrest) {
+	private ResponseDto createResponse(Detention actualDetention) {
 		ResponseDto expectedResponse = new ResponseDto();
-		expectedResponse.setArrestId(actualArrest.getId());
+		expectedResponse.setArrestId(actualDetention.getId());
 		expectedResponse.setResultCode(ResultCode.SUCCESS);
 		return expectedResponse;
 	}
 
-	private Arrest createArrest(Person person, Long amount) {
-		return Arrest.builder()
+	private Detention createArrest(Person person, Long amount) {
+		return Detention.builder()
 			.organizationCode(OrganizationCode.SERVICE_OF_BAILIFFS)
 			.docDate(LocalDate.of(2022, 10, 12))
 			.docNum("yu544-1567456")
@@ -180,7 +183,7 @@ public class ArrestManagementServiceTest {
 			.build();
 	}
 
-	private Arrest createArrest(Long amount) {
+	private Detention createArrest(Long amount) {
 		return createArrest(null, amount);
 	}
 

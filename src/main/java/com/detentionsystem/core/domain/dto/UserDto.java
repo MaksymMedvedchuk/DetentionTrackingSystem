@@ -16,6 +16,4 @@ public class UserDto {
 	private String password;
 	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
 	private Role role;
-	/*@JsonProperty(access = JsonProperty.Access.READ_ONLY)
-	private boolean isVerified;*/
 }

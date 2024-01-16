@@ -42,6 +42,6 @@ public class EmailController {
 	public void saveEmail(@RequestBody @Valid EmailDto emailDto) {
 		Email currentEmail = convertEmailData.convertToDatabaseColumn(emailDto);
 		Email savedEmail = emailService.saveEmail(currentEmail);
-		log.info("In saveEmail: created a email with id: {}", emailDto.getId());
+		log.info("In saveEmail: created a email with id: {}", savedEmail.getId());
 	}
 }

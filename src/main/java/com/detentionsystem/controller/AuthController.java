@@ -41,23 +41,14 @@ public class AuthController {
 
 	private final EmailService emailService;
 
-	private final VerificationTokenService verificationTokenService;
-
-	private final AccessTokenService accessTokenService;
-
 	public AuthController(
 		final AuthenticationService authenticationService,
 		final ConvertUserCreateData convertUserCreateData,
-		final EmailService emailService,
-		final VerificationTokenService verificationTokenService,
-		final AccessTokenService accessTokenService
+		final EmailService emailService
 	) {
 		this.authenticationService = authenticationService;
 		this.convertUserCreateData = convertUserCreateData;
 		this.emailService = emailService;
-		this.verificationTokenService = verificationTokenService;
-
-		this.accessTokenService = accessTokenService;
 	}
 
 	@PostMapping("/registration")
@@ -70,7 +61,7 @@ public class AuthController {
 
 		String url = emailService.getCurrentUrl(request);
 		emailService.sendVerificationEmail(savedUser, url);
-		log.debug("Send verification link toemail", savedUser.getEmail());
+		log.debug("Send verification code to email: [{}]", savedUser.getEmail());
 	}
 
 	@PostMapping("/verify_user")

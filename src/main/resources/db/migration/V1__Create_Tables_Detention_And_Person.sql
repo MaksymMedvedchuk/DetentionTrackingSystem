@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS persons
     issue_date        DATE
 );
 
-CREATE TABLE IF NOT EXISTS arrests
+CREATE TABLE IF NOT EXISTS detentions
 (
     id          SERIAL PRIMARY KEY,
     organ_code  INT           NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS arrests
     person      INT REFERENCES persons (id)
 );
 
-CREATE UNIQUE INDEX IF NOT EXISTS ui_doc_num ON arrests (doc_num);
+CREATE UNIQUE INDEX IF NOT EXISTS ui_doc_num ON detentions (doc_num);
 
 CREATE UNIQUE INDEX IF NOT EXISTS client_uniqueness ON persons (first_name, last_name, ident_doc_type, doc_number_series);
 

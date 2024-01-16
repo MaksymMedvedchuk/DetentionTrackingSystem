@@ -1,6 +1,6 @@
 package com.detentionsystem.core.service.email;
 
-import com.detentionsystem.core.domain.dto.ArrestRequestDto;
+import com.detentionsystem.core.domain.dto.DetentionRequestDto;
 import com.detentionsystem.core.domain.entity.Email;
 import com.detentionsystem.core.domain.entity.User;
 import com.detentionsystem.core.exception.DuplicateEmailException;
@@ -54,7 +54,7 @@ public class EmailServiceImpl implements EmailService {
 	}
 
 	@Override
-	public void sendNotificationToPerson(final ArrestRequestDto requestDto) {
+	public void sendNotificationToPerson(final DetentionRequestDto requestDto) {
 		mimeMessageProvider.sendArrestNotification(requestDto);
 	}
 }

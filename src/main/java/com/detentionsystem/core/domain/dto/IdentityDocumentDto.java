@@ -18,16 +18,13 @@ import java.time.LocalDate;
 @Builder
 public class IdentityDocumentDto {
 
-    @JsonProperty("Type")
     private ExternalIdentityDocumentType type;
 
-    @NotBlank(message = "NumberSeries can't be empty. Please enter value")
-    @JsonProperty("NumberSeries")
+    @NotBlank(message = "numberSeries can't be empty. Please enter value")
     private String numberSeries;
 
-    @NotNull(message = "IssueDate can't be empty. Please enter value")
-    @PastOrPresent(message = "IssueDate must be past.")
-    @JsonProperty("IssueDate")
+    @NotNull(message = "issueDate can't be empty. Please enter value")
+    @PastOrPresent(message = "issueDate must be past.")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate issueDate;
 }

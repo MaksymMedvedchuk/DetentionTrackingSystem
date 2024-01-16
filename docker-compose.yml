@@ -17,9 +17,9 @@ services:
     container_name: backend
     build:
       context: ..
-      dockerfile: ArrestManagementSystem/docker/builder/DockerFile
+      dockerfile: DetentionTrackingSystem/docker/builder/DockerFile
       args:
-        BUILD_PATH: ArrestManagementSystem
+        BUILD_PATH: DetentionTrackingSystem
     ports:
       - "8087:80"
     environment:

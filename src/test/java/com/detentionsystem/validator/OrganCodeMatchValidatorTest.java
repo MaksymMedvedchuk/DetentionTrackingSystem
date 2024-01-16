@@ -1,6 +1,6 @@
 package com.detentionsystem.validator;
 
-import com.detentionsystem.core.domain.dto.ArrestRequestDto;
+import com.detentionsystem.core.domain.dto.DetentionRequestDto;
 import com.detentionsystem.core.domain.dto.IdentityDocumentDto;
 import com.detentionsystem.core.exception.ValidationException;
 import com.detentionsystem.core.domain.enums.ExternalIdentityDocumentType;
@@ -21,18 +21,18 @@ public class OrganCodeMatchValidatorTest {
 
     @Test
     public void testIsValidateOrganCodeMatch() {
-        ArrestRequestDto request = buildRequestDto(OrganizationCode.STATE_TAX_SERVICE);
+        DetentionRequestDto request = buildRequestDto(OrganizationCode.STATE_TAX_SERVICE);
         assertDoesNotThrow(() -> mockOrganCode.validateOrganCodeMatch(request));
     }
 
     @Test
     public void testIsNotValidateOrganCodeMatch() {
-        ArrestRequestDto request = buildRequestDto(OrganizationCode.SERVICE_OF_BAILIFFS);
+        DetentionRequestDto request = buildRequestDto(OrganizationCode.SERVICE_OF_BAILIFFS);
         assertThrows(ValidationException.class, () -> mockOrganCode.validateOrganCodeMatch(request));
     }
 
-    private ArrestRequestDto buildRequestDto(OrganizationCode stateTaxService) {
-        ArrestRequestDto request = new ArrestRequestDto();
+    private DetentionRequestDto buildRequestDto(OrganizationCode stateTaxService) {
+        DetentionRequestDto request = new DetentionRequestDto();
         IdentityDocumentDto identityDocumentDto = new IdentityDocumentDto();
         ExternalIdentityDocumentType identDocType = ExternalIdentityDocumentType.STATE_TAX_SERVICE_PASSPORT;
         String identDocSeries = "11 22 333333";

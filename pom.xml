@@ -7,7 +7,7 @@
     <groupId>com.example</groupId>
     <artifactId>DetentionTrackingSystem</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>CustomerArrestSystem</name>
+    <name>DetentionTrackingSystem</name>
     <packaging>jar</packaging>
 
     <parent>
@@ -39,6 +39,12 @@
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
             <version>0.11.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <!-- JJWT Implementation -->
@@ -182,16 +188,7 @@
                     </archive>
                 </configuration>
             </plugin>
-
-       <!--     <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>-->
-
         </plugins>
     </build>
-
-
-
 </project>
 

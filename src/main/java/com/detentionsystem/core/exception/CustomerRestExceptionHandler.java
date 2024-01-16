@@ -34,8 +34,8 @@ public class CustomerRestExceptionHandler {
 		return new ResponseEntity<>(responseDtoError, HttpStatus.BAD_REQUEST);
 	}
 
-	@ExceptionHandler(ArrestNotFoundException.class)
-	private ResponseEntity<ResponseDto> handleArrestNotFoundException(ArrestNotFoundException ex) {
+	@ExceptionHandler(DetentionNotFoundException.class)
+	private ResponseEntity<ResponseDto> handleArrestNotFoundException(DetentionNotFoundException ex) {
 		ResponseDto responseDtoError = new ResponseDto(ResultCode.BUSINESS_DATA_ERROR, ex.getMessage());
 		return new ResponseEntity<>(responseDtoError, HttpStatus.BAD_REQUEST);
 	}

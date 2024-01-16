@@ -1,12 +1,12 @@
 package com.detentionsystem.core.service;
 
 import com.detentionsystem.core.converter.ExternalDataConverter;
-import com.detentionsystem.core.domain.dto.ArrestRequestDto;
+import com.detentionsystem.core.domain.dto.DetentionRequestDto;
 import com.detentionsystem.core.domain.dto.ResponseDto;
-import com.detentionsystem.core.domain.entity.Arrest;
+import com.detentionsystem.core.domain.entity.Detention;
 import com.detentionsystem.core.domain.entity.Person;
-import com.detentionsystem.core.exception.ArrestNotFoundException;
-import com.detentionsystem.core.repository.ArrestRepository;
+import com.detentionsystem.core.exception.DetentionNotFoundException;
+import com.detentionsystem.core.repository.DetentionRepository;
 import com.detentionsystem.core.domain.enums.InternalIdentityDocumentType;
 import com.detentionsystem.core.domain.enums.OperationType;
 import com.detentionsystem.core.repository.PersonRepository;
@@ -18,29 +18,29 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class ArrestManagementServiceImpl implements ArrestManagementService {
+public class DetentionTrackingServiceImpl implements DetentionTrackingService {
 
 	private final PersonRepository personRepository;
-	private final ArrestRepository arrestRepository;
+	private final DetentionRepository detentionRepository;
 	private final OrganCodeMatchValidator organCodeMatchValidator;
 	private final ExternalDataConverter externalDataConverter;
 
-	public ArrestManagementServiceImpl(
+	public DetentionTrackingServiceImpl(
 		final PersonRepository personRepository,
-		final ArrestRepository arrestRepository,
+		final DetentionRepository detentionRepository,
 		final OrganCodeMatchValidator organCodeMatchValidator,
 		final ExternalDataConverter externalDataConverter
 	) {
 		this.personRepository = personRepository;
-		this.arrestRepository = arrestRepository;
+		this.detentionRepository = detentionRepository;
 		this.organCodeMatchValidator = organCodeMatchValidator;
 		this.externalDataConverter = externalDataConverter;
 	}
 
 	@Transactional
-	public ResponseDto processRequest(final ArrestRequestDto request) {
+	public ResponseDto processRequest(final DetentionRequestDto request) {
 		organCodeMatchValidator.validateOrganCodeMatch(request);
-		final OperationType operationType = request.getArrestDto().getOperation();
+		final OperationType operationType = request.getDetentionDto().getOperation();
         if (operationType == OperationType.PRIMARY) {
             return processPrimary(request);
         }
@@ -50,52 +50,52 @@ public class ArrestManagementServiceImpl implements ArrestManagementService {
 		return processCanceled(request);
 	}
 
-	private ResponseDto processPrimary(final ArrestRequestDto request) {
+	private ResponseDto processPrimary(final DetentionRequestDto request) {
 		final Person person = saveOrFindPerson(request);
-		final Arrest arrest = convertArrestToEntity(request, person);
-		final Arrest savedArrest = arrestRepository.save(arrest);
-		return buildResponseDto(savedArrest);
+		final Detention detention = convertArrestToEntity(request, person);
+		final Detention savedDetention = detentionRepository.save(detention);
+		return buildResponseDto(savedDetention);
 	}
 
-	private Arrest convertArrestToEntity(final ArrestRequestDto request, final Person person) {
-		return Arrest.builder()
+	private Detention convertArrestToEntity(final DetentionRequestDto request, final Person person) {
+		return Detention.builder()
 			.organizationCode(request.getOrganCode())
-			.docDate(request.getArrestDto().getDocDate())
-			.docNum(request.getArrestDto().getDocNum())
-			.purpose(request.getArrestDto().getPurpose())
-			.amount(request.getArrestDto().getAmount())
+			.docDate(request.getDetentionDto().getDocDate())
+			.docNum(request.getDetentionDto().getDocNum())
+			.purpose(request.getDetentionDto().getPurpose())
+			.amount(request.getDetentionDto().getAmount())
 			.statusType(StatusType.ACTIVE)
 			.person(person)
 			.build();
 	}
 
-	private ResponseDto processChanged(final ArrestRequestDto request) {
-		final Arrest arrest = arrestRepository.findByDocNum(request.getArrestDto().getRefDocNum())
-			.orElseThrow(() -> new ArrestNotFoundException("Arrest not found"));
-		final Long amount = arrest.getAmount() - request.getArrestDto().getAmount();
-		arrest.setAmount(amount);
-		arrest.setPurpose(request.getArrestDto().getPurpose());
-		arrest.setStatusType(arrest.getAmount() > 0 ? StatusType.ACTIVE : StatusType.CANCELED);
-		final Arrest savedArrest = arrestRepository.save(arrest);
-		return buildResponseDto(savedArrest);
+	private ResponseDto processChanged(final DetentionRequestDto request) {
+		final Detention detention = detentionRepository.findByDocNum(request.getDetentionDto().getRefDocNum())
+			.orElseThrow(() -> new DetentionNotFoundException("Detention not found"));
+		final Long amount = detention.getAmount() - request.getDetentionDto().getAmount();
+		detention.setAmount(amount);
+		detention.setPurpose(request.getDetentionDto().getPurpose());
+		detention.setStatusType(detention.getAmount() > 0 ? StatusType.ACTIVE : StatusType.CANCELED);
+		final Detention savedDetention = detentionRepository.save(detention);
+		return buildResponseDto(savedDetention);
 	}
 
-	private ResponseDto buildResponseDto(final Arrest arrest) {
+	private ResponseDto buildResponseDto(final Detention detention) {
 		final ResponseDto responseDto = new ResponseDto();
-		responseDto.setArrestId(arrest.getId());
+		responseDto.setArrestId(detention.getId());
 		responseDto.setResultCode(ResultCode.SUCCESS);
 		return responseDto;
 	}
 
-	private ResponseDto processCanceled(final ArrestRequestDto request) {
-		final Arrest arrest = arrestRepository.findByDocNum(request.getArrestDto().getRefDocNum())
-			.orElseThrow(() -> new ArrestNotFoundException("Arrest not found"));
-		arrest.setStatusType(StatusType.CANCELED);
-		final Arrest savedArrest = arrestRepository.save(arrest);
-		return buildResponseDto(savedArrest);
+	private ResponseDto processCanceled(final DetentionRequestDto request) {
+		final Detention detention = detentionRepository.findByDocNum(request.getDetentionDto().getRefDocNum())
+			.orElseThrow(() -> new DetentionNotFoundException("Detention not found"));
+		detention.setStatusType(StatusType.CANCELED);
+		final Detention savedDetention = detentionRepository.save(detention);
+		return buildResponseDto(savedDetention);
 	}
 
-	private Person saveOrFindPerson(final ArrestRequestDto request) {
+	private Person saveOrFindPerson(final DetentionRequestDto request) {
 		final Pair<InternalIdentityDocumentType, String>
 			internalIdentDoc =
 			externalDataConverter.convertExternalToInternalData(request);
@@ -109,7 +109,7 @@ public class ArrestManagementServiceImpl implements ArrestManagementService {
 	}
 
 	Person convertPersonToEntity(
-		final ArrestRequestDto request,
+		final DetentionRequestDto request,
 		final String internalNumSeries,
 		final InternalIdentityDocumentType internalDocType
 	) {

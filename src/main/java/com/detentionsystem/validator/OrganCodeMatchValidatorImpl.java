@@ -1,6 +1,6 @@
 package com.detentionsystem.validator;
 
-import com.detentionsystem.core.domain.dto.ArrestRequestDto;
+import com.detentionsystem.core.domain.dto.DetentionRequestDto;
 import com.detentionsystem.core.exception.ValidationException;
 import com.detentionsystem.core.domain.enums.ExternalIdentityDocumentType;
 import com.detentionsystem.core.domain.enums.OrganizationCode;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrganCodeMatchValidatorImpl implements OrganCodeMatchValidator {
 
-    public void validateOrganCodeMatch(ArrestRequestDto requestDto) {
+    public void validateOrganCodeMatch(DetentionRequestDto requestDto) {
         OrganizationCode organCode = requestDto.getOrganCode();
         ExternalIdentityDocumentType identDocType = requestDto.getIdentityDocumentDto().getType();
         String identDocSeries = requestDto.getIdentityDocumentDto().getNumberSeries();

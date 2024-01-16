@@ -21,13 +21,10 @@ import lombok.ToString;
 @Builder
 public class ResponseDto {
 
-	@JsonProperty("ArrestId")
 	private Long arrestId;
 
-	@JsonProperty("ResultCode")
 	private ResultCode resultCode;
 
-	@JsonProperty("ResultText")
 	private String resultText;
 
 	public ResponseDto(ResultCode resultCode, String resultText) {

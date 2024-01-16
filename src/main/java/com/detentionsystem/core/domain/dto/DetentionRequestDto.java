@@ -16,33 +16,28 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 
-public class ArrestRequestDto {
+public class DetentionRequestDto {
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
 
-    @NotEmpty(message = "FirstName can't be empty. Please enter value")
+    @NotEmpty(message = "firstName can't be empty. Please enter value")
     @Pattern(regexp = "[A-Za-z\\-]+", message = "You enter the wrong character. Valid values: letters of the Latin alphabet and the symbol '-'")
-    @Size(max = 100, message = "The maximum length of the FirstName can be no more than 100 characters. Please enter less value")
-    @JsonProperty("FirstName")
+    @Size(max = 100, message = "The maximum length of the firstName can be no more than 100 characters. Please enter less value")
     private String firstName;
 
-    @NotEmpty(message = "LastName can't be empty. Please enter value")
+    @NotEmpty(message = "lastName can't be empty. Please enter value")
     @Pattern(regexp = "[A-Za-z\\-]+", message = "You enter the wrong character. Valid values: letters of the Latin alphabet and the symbol '-'")
-    @JsonProperty("LastName")
-    @Size(max = 100, message = "The maximum length of the LastName can be no more than 100 characters. Please enter less value")
+    @Size(max = 100, message = "The maximum length of the lastName can be no more than 100 characters. Please enter less value")
     private String lastName;
 
-    @JsonProperty("IdentDoc")
     @Valid
     private IdentityDocumentDto identityDocumentDto;
 
-    @JsonProperty("OrganCode")
     private OrganizationCode organCode;
 
-    @JsonProperty("Arrest")
     @Valid
-    private ArrestDto arrestDto;
+    private DetentionDto detentionDto;
 
     @Email
     private String email;

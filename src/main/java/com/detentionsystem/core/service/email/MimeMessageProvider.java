@@ -1,6 +1,6 @@
 package com.detentionsystem.core.service.email;
 
-import com.detentionsystem.core.domain.dto.ArrestRequestDto;
+import com.detentionsystem.core.domain.dto.DetentionRequestDto;
 import com.detentionsystem.core.domain.entity.User;
 import com.detentionsystem.core.exception.MailException;
 import com.detentionsystem.security.service.VerificationTokenService;
@@ -64,7 +64,7 @@ public class MimeMessageProvider {
 		configureMimeMessage(toAddress, subject, content);
 	}
 
-	private void createArrestNotification(final ArrestRequestDto requestDto) {
+	private void createArrestNotification(final DetentionRequestDto requestDto) {
 		final String toAddress = requestDto.getEmail();
 		final String subject = "You received arrest";
 		final String
@@ -72,7 +72,7 @@ public class MimeMessageProvider {
 			"Hello, " +
 				requestDto.getFirstName() +
 				" you received an arrest for the amount " +
-				requestDto.getArrestDto().getAmount();
+				requestDto.getDetentionDto().getAmount();
 		configureMimeMessage(toAddress, subject, content);
 	}
 
@@ -90,7 +90,7 @@ public class MimeMessageProvider {
 		}
 	}
 
-	public void sendArrestNotification(final ArrestRequestDto requestDto) {
+	public void sendArrestNotification(final DetentionRequestDto requestDto) {
 		createArrestNotification(requestDto);
 		log.info("In sendArrestNotification sent notification about arrest to email: [{}]", requestDto.getEmail());
 		javaMailSender.send(mimeMessageHelper.getMimeMessage());

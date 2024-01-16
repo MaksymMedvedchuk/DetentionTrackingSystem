@@ -19,34 +19,28 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ArrestDto {
+public class DetentionDto {
 
-    @NotNull(message = "DocDate can't be empty. Please enter value")
-    @PastOrPresent(message = "DocDate must be past.")
-    @JsonProperty("DocDate")
+    @NotNull(message = "docDate can't be empty. Please enter value")
+    @PastOrPresent(message = "docDate must be past.")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate docDate;
 
-    @NotEmpty(message = "DocNum can't be empty. Please enter value")
-    @Size(max = 30, message = "The maximum length of the DocNum can be no more than 30 characters. Please enter less value")
+    @NotEmpty(message = "docNum can't be empty. Please enter value")
+    @Size(max = 30, message = "The maximum length of the docNum can be no more than 30 characters. Please enter less value")
     @Pattern(regexp = "[a-zA-Z\\d#№-]+", message = "You enter the wrong character. Valid values: letters of the Latin " +
             "alphabet and symbols '-', '#', '№'")
-    @JsonProperty("DocNum")
     private String docNum;
 
-    @NotEmpty(message = "Purpose cannot be empty. Please enter value")
-    @Size(max = 1000, message = "The maximum length of the Purpose can be no more than 1000 characters. Please enter less value")
-    @JsonProperty("Purpose")
+    @NotEmpty(message = "purpose cannot be empty. Please enter value")
+    @Size(max = 1000, message = "The maximum length of the purpose can be no more than 1000 characters. Please enter less value")
     private String purpose;
 
 
-    @Positive(message = "Amount can be only positive. Please enter a positive value")
-    @JsonProperty("Amount")
+    @Positive(message = "amount can be only positive. Please enter a positive value")
     private Long amount;
 
-    @JsonProperty("RefDocNum")
     private String refDocNum;
 
-    @JsonProperty("Operation")
     private OperationType operation;
 }
