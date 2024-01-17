@@ -19,7 +19,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -28,31 +27,21 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class AuthControllerTest {
 
+	private final static String URL = "localhost:8080";
+	private final static String TOKEN_VALUE = "tokenValue";
 	@InjectMocks
 	private AuthController authController;
-
 	@Mock
 	private AuthenticationService authenticationService;
-
 	@Mock
 	private ConvertUserCreateData convertUserCreateData;
-
 	@Mock
 	private EmailService emailService;
-
 	private User user;
-
 	private UserDto userDto;
-
 	private HttpServletRequest request;
-
 	private HttpServletResponse response;
-
-	private String url;
-
 	private LoginDto loginDto;
-
-	private String tokenValue;
 
 	@BeforeEach
 	void setUp() {
@@ -60,8 +49,6 @@ public class AuthControllerTest {
 		userDto = new UserDto();
 		request = mock(HttpServletRequest.class);
 		response = mock(HttpServletResponse.class);
-		url = "localhost:8080";
-		tokenValue = "tokenValue";
 		loginDto = new LoginDto();
 	}
 
@@ -70,43 +57,43 @@ public class AuthControllerTest {
 		final User currentUser = convertUserCreateData.convertToDatabaseColumn(userDto);
 
 		when(authenticationService.register(currentUser)).thenReturn(user);
-		when(emailService.getCurrentUrl(request)).thenReturn(url);
+		when(emailService.getCurrentUrl(request)).thenReturn(URL);
 
 		authController.registerUser(userDto, request);
 
 		verify(authenticationService, times(1)).register(currentUser);
-		verify(emailService, times(1)).sendVerificationEmail(user, url);
+		verify(emailService, times(1)).sendVerificationEmail(user, URL);
 	}
 
 	@Test
 	void testVerifyUser_SuccessfulVerification() {
-		final ResponseEntity<String> responseEntity = authController.verifyUser(tokenValue);
+		final ResponseEntity<String> responseEntity = authController.verifyUser(TOKEN_VALUE);
 
 		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-		verify(authenticationService, times(1)).verify(tokenValue);
+		verify(authenticationService, times(1)).verify(TOKEN_VALUE);
 	}
 
 	@Test
 	void testLoginUser_SuccessfulLogin() {
-		when(authenticationService.login(loginDto)).thenReturn(tokenValue);
+		when(authenticationService.login(loginDto)).thenReturn(TOKEN_VALUE);
 
 		final ResponseEntity<String> responseEntity = authController.loginUser(loginDto, response);
 
 		verify(authenticationService, times(1)).login(loginDto);
 		verify(response, times(1))
-			.setHeader(Constant.Token.AUTHORIZATION_HEADER, Constant.Token.ACCESS_TOKEN_PREFIX + tokenValue);
+			.setHeader(Constant.Token.AUTHORIZATION_HEADER, Constant.Token.ACCESS_TOKEN_PREFIX + TOKEN_VALUE);
 
 		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-		assertEquals(tokenValue, responseEntity.getBody());
+		assertEquals(TOKEN_VALUE, responseEntity.getBody());
 	}
 
 	@Test
 	void testLogoutUser_SuccessfulLogout() {
-		when(request.getHeader(Constant.Token.AUTHORIZATION_HEADER)).thenReturn(tokenValue);
+		when(request.getHeader(Constant.Token.AUTHORIZATION_HEADER)).thenReturn(TOKEN_VALUE);
 
 		final ResponseEntity<String> responseEntity = authController.logoutUser(user.getId(), request);
 
-		verify(authenticationService, times(1)).logout(user.getId(), tokenValue);
+		verify(authenticationService, times(1)).logout(user.getId(), TOKEN_VALUE);
 		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
 	}
 }
