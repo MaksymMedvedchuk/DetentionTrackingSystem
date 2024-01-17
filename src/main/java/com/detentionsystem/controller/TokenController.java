@@ -1,9 +1,7 @@
 package com.detentionsystem.controller;
 
 import com.detentionsystem.config.Constant;
-import com.detentionsystem.core.converter.ConvertTokenData;
 import com.detentionsystem.security.service.JwtTokenAuthenticationService;
-import com.detentionsystem.security.service.TokenService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -22,19 +20,11 @@ public class TokenController {
 
 	protected static final String URL = "/token";
 
-	private final ConvertTokenData convertTokenData;
-
-	private final TokenService tokenService;
-
 	private final JwtTokenAuthenticationService jwtTokenAuthenticationService;
 
 	public TokenController(
-		final ConvertTokenData convertTokenData,
-		final TokenService tokenService,
 		final JwtTokenAuthenticationService jwtTokenAuthenticationService
 	) {
-		this.convertTokenData = convertTokenData;
-		this.tokenService = tokenService;
 		this.jwtTokenAuthenticationService = jwtTokenAuthenticationService;
 	}
 

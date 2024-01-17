@@ -70,7 +70,7 @@ public class AuthControllerTest {
 		final ResponseEntity<String> responseEntity = authController.verifyUser(TOKEN_VALUE);
 
 		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-		verify(authenticationService, times(1)).verify(TOKEN_VALUE);
+		verify(authenticationService).verify(TOKEN_VALUE);
 	}
 
 	@Test
@@ -79,12 +79,15 @@ public class AuthControllerTest {
 
 		final ResponseEntity<String> responseEntity = authController.loginUser(loginDto, response);
 
-		verify(authenticationService, times(1)).login(loginDto);
-		verify(response, times(1))
-			.setHeader(Constant.Token.AUTHORIZATION_HEADER, Constant.Token.ACCESS_TOKEN_PREFIX + TOKEN_VALUE);
+		verify(authenticationService).login(loginDto);
+		verify(response).setHeader(
+			Constant.Token.AUTHORIZATION_HEADER,
+			Constant.Token.ACCESS_TOKEN_PREFIX + TOKEN_VALUE
+		);
 
 		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
 		assertEquals(TOKEN_VALUE, responseEntity.getBody());
+
 	}
 
 	@Test
@@ -93,7 +96,7 @@ public class AuthControllerTest {
 
 		final ResponseEntity<String> responseEntity = authController.logoutUser(user.getId(), request);
 
-		verify(authenticationService, times(1)).logout(user.getId(), TOKEN_VALUE);
+		verify(authenticationService).logout(user.getId(), TOKEN_VALUE);
 		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
 	}
 }
