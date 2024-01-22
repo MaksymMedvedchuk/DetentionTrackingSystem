@@ -70,7 +70,7 @@ public class DetentionController {
 	@GetMapping("/get/{docNum}")
 	@Operation(summary = "Get detention by docNum")
 	@PreAuthorize("hasRole('ADMIN') or hasRole('PERSONE')")
-	public ResponseEntity<DetentionDto> getDetentionDocNum(@PathVariable final String docNum) {
+	public ResponseEntity<DetentionDto> getDetentionByDocNum(@PathVariable final String docNum) {
 		Detention detention = detentionService.findByDocNum(docNum);
 		DetentionDto result = detentionConverter.convertToDatabaseColumn(detention);
 

@@ -25,3 +25,4 @@ public class ConvertUserData implements AttributeConverter<UserDto, User> {
 		return modelMapper.map(user, UserDto.class);
 	}
 }
+

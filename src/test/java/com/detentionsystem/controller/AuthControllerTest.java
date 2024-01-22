@@ -1,7 +1,7 @@
 package com.detentionsystem.controller;
 
 import com.detentionsystem.config.Constant;
-import com.detentionsystem.core.converter.ConvertUserCreateData;
+import com.detentionsystem.core.converter.ConvertUserData;
 import com.detentionsystem.core.domain.dto.LoginDto;
 import com.detentionsystem.core.domain.dto.UserDto;
 import com.detentionsystem.core.domain.entity.User;
@@ -20,7 +20,6 @@ import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -34,7 +33,7 @@ public class AuthControllerTest {
 	@Mock
 	private AuthenticationService authenticationService;
 	@Mock
-	private ConvertUserCreateData convertUserCreateData;
+	private ConvertUserData convertUserData;
 	@Mock
 	private EmailService emailService;
 	private User user;
@@ -53,20 +52,20 @@ public class AuthControllerTest {
 	}
 
 	@Test
-	void testRegisterUser_SuccessfulRegistration() {
-		final User currentUser = convertUserCreateData.convertToDatabaseColumn(userDto);
+	void shouldRegisterUser() {
+		final User currentUser = convertUserData.convertToDatabaseColumn(userDto);
 
 		when(authenticationService.register(currentUser)).thenReturn(user);
 		when(emailService.getCurrentUrl(request)).thenReturn(URL);
 
 		authController.registerUser(userDto, request);
 
-		verify(authenticationService, times(1)).register(currentUser);
-		verify(emailService, times(1)).sendVerificationEmail(user, URL);
+		verify(authenticationService).register(currentUser);
+		verify(emailService).sendVerificationEmail(user, URL);
 	}
 
 	@Test
-	void testVerifyUser_SuccessfulVerification() {
+	void shouldVerifyUser() {
 		final ResponseEntity<String> responseEntity = authController.verifyUser(TOKEN_VALUE);
 
 		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
@@ -74,7 +73,7 @@ public class AuthControllerTest {
 	}
 
 	@Test
-	void testLoginUser_SuccessfulLogin() {
+	void shouldLoginUser() {
 		when(authenticationService.login(loginDto)).thenReturn(TOKEN_VALUE);
 
 		final ResponseEntity<String> responseEntity = authController.loginUser(loginDto, response);
@@ -87,11 +86,10 @@ public class AuthControllerTest {
 
 		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
 		assertEquals(TOKEN_VALUE, responseEntity.getBody());
-
 	}
 
 	@Test
-	void testLogoutUser_SuccessfulLogout() {
+	void shouldLogoutUser() {
 		when(request.getHeader(Constant.Token.AUTHORIZATION_HEADER)).thenReturn(TOKEN_VALUE);
 
 		final ResponseEntity<String> responseEntity = authController.logoutUser(user.getId(), request);

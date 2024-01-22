@@ -1,14 +1,12 @@
 package com.detentionsystem.controller;
 
 import com.detentionsystem.config.Constant;
-import com.detentionsystem.core.converter.ConvertUserCreateData;
+import com.detentionsystem.core.converter.ConvertUserData;
 import com.detentionsystem.core.domain.dto.LoginDto;
 import com.detentionsystem.core.domain.dto.UserDto;
 import com.detentionsystem.core.domain.entity.User;
 import com.detentionsystem.core.service.email.EmailService;
-import com.detentionsystem.security.service.AccessTokenService;
 import com.detentionsystem.security.service.AuthenticationService;
-import com.detentionsystem.security.service.VerificationTokenService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.servlet.http.HttpServletRequest;
@@ -37,17 +35,17 @@ public class AuthController {
 
 	private final AuthenticationService authenticationService;
 
-	private final ConvertUserCreateData convertUserCreateData;
+	private final ConvertUserData convertUserData;
 
 	private final EmailService emailService;
 
 	public AuthController(
 		final AuthenticationService authenticationService,
-		final ConvertUserCreateData convertUserCreateData,
+		final ConvertUserData convertUserData,
 		final EmailService emailService
 	) {
 		this.authenticationService = authenticationService;
-		this.convertUserCreateData = convertUserCreateData;
+		this.convertUserData = convertUserData;
 		this.emailService = emailService;
 	}
 
@@ -55,7 +53,7 @@ public class AuthController {
 	@ResponseStatus(HttpStatus.CREATED)
 	@Operation(summary = "Registration new user")
 	public void registerUser(@RequestBody @Valid final UserDto userDto, final HttpServletRequest request) {
-		User currentUser = convertUserCreateData.convertToDatabaseColumn(userDto);
+		User currentUser = convertUserData.convertToDatabaseColumn(userDto);
 		User savedUser = authenticationService.register(currentUser);
 		log.debug("In registerUser: created a user with id: [{}]", savedUser.getId());
 

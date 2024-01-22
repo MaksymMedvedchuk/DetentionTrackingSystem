@@ -24,7 +24,7 @@ public class TokenControllerTest {
 	private JwtTokenAuthenticationService jwtTokenAuthenticationService;
 
 	@Test
-	void testGenerateAccessTokenFromRefresh_Successful() {
+	void shouldGenerateAccessTokenFromRefresh() {
 		when(jwtTokenAuthenticationService.generateAccessTokenFromRefreshToken(TOKEN_VALUE)).thenReturn(TOKEN_VALUE);
 
 		final ResponseEntity<String> response = tokenController.generateAccessTokenFromRefresh(TOKEN_VALUE);
@@ -33,7 +33,7 @@ public class TokenControllerTest {
 	}
 
 	@Test
-	void testGenerateNewRefreshToken_Successful() {
+	void shouldGenerateNewRefreshToken() {
 		when(jwtTokenAuthenticationService.generateNewRefreshToken(TOKEN_VALUE)).thenReturn(TOKEN_VALUE);
 
 		final ResponseEntity<String> response = tokenController.generateNewRefreshToken(TOKEN_VALUE);

@@ -38,7 +38,7 @@ public class EmailControllerTest {
 	}
 
 	@Test
-	void saveEmail_Successful() {
+	void shouldSaveEmail() {
 		when(convertEmailData.convertToDatabaseColumn(emailDto)).thenReturn(email);
 		when(emailService.saveEmail(email)).thenReturn(email);
 
