@@ -7,19 +7,20 @@ import com.detentionsystem.core.domain.dto.IdentityDocumentDto;
 import com.detentionsystem.core.domain.dto.ResponseDto;
 import com.detentionsystem.core.domain.entity.Detention;
 import com.detentionsystem.core.domain.entity.Person;
-import com.detentionsystem.core.exception.DetentionNotFoundException;
-import com.detentionsystem.core.repository.DetentionRepository;
 import com.detentionsystem.core.domain.enums.ExternalIdentityDocumentType;
 import com.detentionsystem.core.domain.enums.InternalIdentityDocumentType;
 import com.detentionsystem.core.domain.enums.OperationType;
 import com.detentionsystem.core.domain.enums.OrganizationCode;
-import com.detentionsystem.core.repository.PersonRepository;
-import com.detentionsystem.util.Pair;
 import com.detentionsystem.core.domain.enums.ResultCode;
 import com.detentionsystem.core.domain.enums.StatusType;
+import com.detentionsystem.core.exception.DetentionNotFoundException;
+import com.detentionsystem.core.repository.DetentionRepository;
+import com.detentionsystem.core.repository.PersonRepository;
+import com.detentionsystem.util.Pair;
 import com.detentionsystem.validator.OrganCodeMatchValidator;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -31,13 +32,16 @@ import java.util.Optional;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DetentionTrackingServiceTest {
 
 	@InjectMocks
-	private DetentionTrackingServiceImpl arrestManagementService;
+	private DetentionTrackingServiceImpl detentionTrackingService;
 	@Mock
 	private ExternalDataConverterImpl mockExternalDataConverter;
 	@Mock
@@ -46,6 +50,16 @@ public class DetentionTrackingServiceTest {
 	private DetentionRepository mockDetentionRepository;
 	@Mock
 	private OrganCodeMatchValidator mockOrganCodeMatchValidator;
+
+	private DetentionRequestDto requestDto;
+
+	private DetentionDto detentionDto;
+
+	@BeforeEach
+	void setUp(){
+		requestDto = mock(DetentionRequestDto.class);
+		detentionDto = mock(DetentionDto.class);
+	}
 
 	public static DetentionRequestDto createRequest(Long amount, OperationType operationType) {
 		return DetentionRequestDto.builder()
@@ -75,11 +89,12 @@ public class DetentionTrackingServiceTest {
 		DetentionRequestDto request = createRequest(1200L, OperationType.PRIMARY);
 		Person expectedPerson = createPerson();
 		Long expectedAmount = 1200L;
-		Detention expectedDetention = createArrest(expectedPerson, expectedAmount);
+		Detention expectedDetention = createDetention(expectedPerson, expectedAmount);
 		String expectedInternalDocNum = "666666 99 11";
 		when(mockExternalDataConverter.convertExternalToInternalData(request))
 			.thenReturn(new Pair<>(InternalIdentityDocumentType.PASSPORT, expectedInternalDocNum));
-		when(mockPersonRepository.findPerson(request.getFirstName(),
+		when(mockPersonRepository.findPerson(
+			request.getFirstName(),
 			request.getLastName(),
 			InternalIdentityDocumentType.PASSPORT,
 			expectedInternalDocNum
@@ -87,18 +102,18 @@ public class DetentionTrackingServiceTest {
 		when(mockPersonRepository.save(expectedPerson)).thenReturn(expectedPerson);
 		when(mockDetentionRepository.save(expectedDetention)).thenReturn(expectedDetention);
 		ResponseDto expectedResponse = createResponse(expectedDetention);
-		ResponseDto actualResponse = arrestManagementService.processRequest(request);
+		ResponseDto actualResponse = detentionTrackingService.processRequest(request);
 		assertEquals(expectedResponse, actualResponse);
 	}
 
 	@Test
 	public void processChangedToActiveStatus() {
 		DetentionRequestDto request = createRequest(1500L, OperationType.CHANGED);
-		Detention detention = createArrest(2000L);
+		Detention detention = createDetention(2000L);
 		when(mockDetentionRepository.save(detention)).thenReturn(detention);
 		when(mockDetentionRepository.findByDocNum(request.getDetentionDto().getRefDocNum())).thenReturn(Optional.of(
 			detention));
-		ResponseDto actualResponse = arrestManagementService.processRequest(request);
+		ResponseDto actualResponse = detentionTrackingService.processRequest(request);
 		ResponseDto expectedResponse = createResponse(detention);
 		assertEquals(expectedResponse, actualResponse);
 	}
@@ -106,20 +121,22 @@ public class DetentionTrackingServiceTest {
 	@Test
 	public void processChangedToActiveStatusIfArrestEmpty() {
 		DetentionRequestDto request = createRequest(1500L, OperationType.CHANGED);
-		Detention detention = createArrest(2000L);
+		Detention detention = createDetention(2000L);
 		when(mockDetentionRepository.save(detention)).thenReturn(detention);
-		when(mockDetentionRepository.findByDocNum(request.getDetentionDto().getRefDocNum())).thenReturn(Optional.empty());
-		assertThrows(DetentionNotFoundException.class, () -> arrestManagementService.processRequest(request));
+		when(mockDetentionRepository.findByDocNum(request
+			.getDetentionDto()
+			.getRefDocNum())).thenReturn(Optional.empty());
+		assertThrows(DetentionNotFoundException.class, () -> detentionTrackingService.processRequest(request));
 	}
 
 	@Test
 	public void processChangedToCanceledStatus() {
 		DetentionRequestDto request = createRequest(1500L, OperationType.CHANGED);
-		Detention detention = createArrest(200L);
+		Detention detention = createDetention(200L);
 		when(mockDetentionRepository.findByDocNum(request.getDetentionDto().getRefDocNum())).thenReturn(Optional.of(
 			detention));
 		when(mockDetentionRepository.save(detention)).thenReturn(detention);
-		ResponseDto actualResponse = arrestManagementService.processRequest(request);
+		ResponseDto actualResponse = detentionTrackingService.processRequest(request);
 		ResponseDto expectedResponse = createResponse(detention);
 		assertEquals(expectedResponse, actualResponse);
 	}
@@ -127,12 +144,12 @@ public class DetentionTrackingServiceTest {
 	@Test
 	public void testProcessCanceled() {
 		DetentionRequestDto request = createRequest(1500L, OperationType.CANCELED);
-		Detention detention = createArrest(1200L);
+		Detention detention = createDetention(1200L);
 		when(mockDetentionRepository.findByDocNum(request.getDetentionDto().getRefDocNum())).thenReturn(Optional.of(
 			detention));
 		when(mockDetentionRepository.save(detention)).thenReturn(detention);
 		ResponseDto expectedResponse = createResponse(detention);
-		ResponseDto actualResponse = arrestManagementService.processRequest(request);
+		ResponseDto actualResponse = detentionTrackingService.processRequest(request);
 		assertEquals(expectedResponse, actualResponse);
 	}
 
@@ -146,7 +163,7 @@ public class DetentionTrackingServiceTest {
 		Person expectedPerson = createPerson();
 		Person
 			actualPerson =
-			arrestManagementService.convertPersonToEntity(request, internalNumSeries, internalDocType);
+			detentionTrackingService.convertPersonToEntity(request, internalNumSeries, internalDocType);
 		assertEquals(expectedPerson, actualPerson);
 	}
 
@@ -160,7 +177,7 @@ public class DetentionTrackingServiceTest {
 		Person expectedPerson = createPerson();
 		Person
 			actualPerson =
-			arrestManagementService.convertPersonToEntity(request, internalNumSeries, internalDocType);
+			detentionTrackingService.convertPersonToEntity(request, internalNumSeries, internalDocType);
 		assertNotEquals(expectedPerson, actualPerson);
 	}
 
@@ -171,7 +188,7 @@ public class DetentionTrackingServiceTest {
 		return expectedResponse;
 	}
 
-	private Detention createArrest(Person person, Long amount) {
+	private Detention createDetention(Person person, Long amount) {
 		return Detention.builder()
 			.organizationCode(OrganizationCode.SERVICE_OF_BAILIFFS)
 			.docDate(LocalDate.of(2022, 10, 12))
@@ -183,8 +200,8 @@ public class DetentionTrackingServiceTest {
 			.build();
 	}
 
-	private Detention createArrest(Long amount) {
-		return createArrest(null, amount);
+	private Detention createDetention(Long amount) {
+		return createDetention(null, amount);
 	}
 
 	private Person createPerson() {
@@ -194,5 +211,15 @@ public class DetentionTrackingServiceTest {
 			.identDocType(InternalIdentityDocumentType.PASSPORT)
 			.docNumberSeries("666666 99 11")
 			.build();
+	}
+
+	@Test
+	public void shouldProcessRequest() {
+
+		/*when(requestDto.getDetentionDto()).thenReturn(detentionDto);*/
+
+		ResponseDto responseDto = detentionTrackingService.processRequest(requestDto);
+
+		verify(mockOrganCodeMatchValidator).validateOrganCodeMatch(requestDto);
 	}
 }
