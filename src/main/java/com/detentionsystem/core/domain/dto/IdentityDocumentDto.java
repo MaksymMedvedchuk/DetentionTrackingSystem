@@ -2,7 +2,6 @@ package com.detentionsystem.core.domain.dto;
 
 import com.detentionsystem.core.domain.enums.ExternalIdentityDocumentType;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -18,7 +17,7 @@ import java.time.LocalDate;
 @Builder
 public class IdentityDocumentDto {
 
-    private ExternalIdentityDocumentType type;
+    private ExternalIdentityDocumentType organPassportCode;
 
     @NotBlank(message = "numberSeries can't be empty. Please enter value")
     private String numberSeries;

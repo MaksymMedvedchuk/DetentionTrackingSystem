@@ -6,8 +6,8 @@ import com.detentionsystem.core.domain.dto.DetentionDto;
 import com.detentionsystem.core.domain.dto.DetentionRequestDto;
 import com.detentionsystem.core.domain.dto.ResponseDto;
 import com.detentionsystem.core.domain.entity.Detention;
-import com.detentionsystem.core.service.DetentionTrackingService;
 import com.detentionsystem.core.service.DetentionService;
+import com.detentionsystem.core.service.DetentionTrackingService;
 import com.detentionsystem.core.service.email.EmailService;
 import com.detentionsystem.validator.UuidValidator;
 import io.swagger.v3.oas.annotations.Operation;
@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import static com.detentionsystem.controller.DetentionController.URL;
@@ -77,6 +78,18 @@ public class DetentionController {
 		log.info("In getDetentionDocNum found detention by docNum: [{}]", result.getDocNum());
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
+
+	@PostMapping("/payOff")
+	@Operation(summary = "pay off fine amount")
+	@PreAuthorize("hasRole('PERSONE')")
+	public ResponseEntity<String> payOffFineAmount(@RequestParam String docNum, @RequestParam Long fineAmount) {
+		detentionService.payOffFineAmount(docNum, fineAmount);
+
+		log.info("In payOffFineAmount fine amount of was paid off of docNum: [{}]", docNum);
+		return new ResponseEntity<>("successful", HttpStatus.OK);
+	}
+
+
 }
 
 

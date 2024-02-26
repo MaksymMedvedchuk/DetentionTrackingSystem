@@ -70,7 +70,7 @@ public class DetentionTrackingServiceImpl implements DetentionTrackingService {
 	}
 
 	private ResponseDto processChanged(final DetentionRequestDto request) {
-		final Detention detention = detentionRepository.findByDocNum(request.getDetentionDto().getRefDocNum())
+		final Detention detention = detentionRepository.findByDocNum(request.getDetentionDto().getDocNum())
 			.orElseThrow(() -> new DetentionNotFoundException("Detention not found"));
 		final Long amount = detention.getAmount() - request.getDetentionDto().getAmount();
 		detention.setAmount(amount);
@@ -88,7 +88,7 @@ public class DetentionTrackingServiceImpl implements DetentionTrackingService {
 	}
 
 	private ResponseDto processCanceled(final DetentionRequestDto request) {
-		final Detention detention = detentionRepository.findByDocNum(request.getDetentionDto().getRefDocNum())
+		final Detention detention = detentionRepository.findByDocNum(request.getDetentionDto().getDocNum())
 			.orElseThrow(() -> new DetentionNotFoundException("Detention not found"));
 		detention.setStatusType(StatusType.CANCELED);
 		final Detention savedDetention = detentionRepository.save(detention);

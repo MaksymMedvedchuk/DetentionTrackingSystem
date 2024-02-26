@@ -86,7 +86,7 @@ public class ExternalDataConverterTest {
 	) {
 		IdentityDocumentDto identDocDto = new IdentityDocumentDto();
 		DetentionRequestDto detentionRequestDto = new DetentionRequestDto();
-		identDocDto.setType(externalIdentityDocumentType);
+		identDocDto.setOrganPassportCode(externalIdentityDocumentType);
 		identDocDto.setNumberSeries(externalNumSeries);
 		detentionRequestDto.setIdentityDocumentDto(identDocDto);
 		return detentionRequestDto;

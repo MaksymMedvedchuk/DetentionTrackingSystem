@@ -11,7 +11,7 @@ public class OrganCodeMatchValidatorImpl implements OrganCodeMatchValidator {
 
     public void validateOrganCodeMatch(DetentionRequestDto requestDto) {
         OrganizationCode organCode = requestDto.getOrganCode();
-        ExternalIdentityDocumentType identDocType = requestDto.getIdentityDocumentDto().getType();
+        ExternalIdentityDocumentType identDocType = requestDto.getIdentityDocumentDto().getOrganPassportCode();
         String identDocSeries = requestDto.getIdentityDocumentDto().getNumberSeries();
 
         if (!identDocType.doesOrganizationCorrespond(organCode))

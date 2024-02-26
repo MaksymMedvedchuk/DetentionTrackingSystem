@@ -29,20 +29,16 @@ import java.util.List;
 public class Person extends BaseEntity {
 
     @Column(name = "first_name")
-    @Size(max = 100, message = "The maximum length of the first name can be no more than 100 characters. Please enter less value")
     private String firstName;
 
     @Column(name = "last_name")
-    @Size(max = 100, message = "The maximum length of the last name can be no more than 100 characters. Please enter less value")
     private String lastName;
 
     @Column(name = "birthday")
-    @Past
     @Convert(converter = LocalDateConverter.class)
     private LocalDate birthday;
 
     @Column(name = "birthplace")
-    @Size(max = 250, message = "The maximum length of the birth place can be no more than 250 characters. Please enter less value")
     private String birthplace;
 
     @Column(name = "ident_doc_type")

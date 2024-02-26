@@ -40,7 +40,6 @@ public class DetentionDto {
     @Positive(message = "amount can be only positive. Please enter a positive value")
     private Long amount;
 
-    private String refDocNum;
-
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private OperationType operation;
 }

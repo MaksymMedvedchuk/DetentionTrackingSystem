@@ -40,6 +40,12 @@ public class CustomerRestExceptionHandler {
 		return new ResponseEntity<>(responseDtoError, HttpStatus.BAD_REQUEST);
 	}
 
+	@ExceptionHandler(FineAmountException.class)
+	private ResponseEntity<ResponseDto> handleFineAmountException(FineAmountException ex) {
+		ResponseDto responseDtoError = new ResponseDto(ResultCode.BUSINESS_DATA_ERROR, ex.getMessage());
+		return new ResponseEntity<>(responseDtoError, HttpStatus.BAD_REQUEST);
+	}
+
 	@ExceptionHandler(HttpMessageNotReadableException.class)
 	private ResponseEntity<ResponseDto> handleHttpMessageNotReadableEx(HttpMessageNotReadableException ex) {
 		StringBuilder message = new StringBuilder(ex.getMessage());

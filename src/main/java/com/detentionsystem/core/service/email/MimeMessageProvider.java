@@ -50,12 +50,12 @@ public class MimeMessageProvider {
 	private void createEmailConfirmationMessage(final User user, final String siteUrl) {
 		final String toAddress = user.getEmail();
 		final String code = verificationTokenService.generateVerificationToken(user).getTokenValue();
-		final String enpoindUrl = siteUrl + varificationEndpoint;
+		final String endpointdUrl = siteUrl + varificationEndpoint;
 		final String subject = "Please verify your registration";
 		final String content = "<html><body>" +
 			"<p>Dear " + user.getFirstName() + ",</p>" +
 			"<p>Please click the button below to verify your registration:</p>" +
-			"<form action='" + enpoindUrl + "' method='post'>" +
+			"<form action='" + endpointdUrl + "' method='post'>" +
 			"<input type='hidden' name='code' value='" + code + "'>" +
 			"<input type='submit' value='VERIFY'>" +
 			"</form>" +
@@ -65,14 +65,18 @@ public class MimeMessageProvider {
 	}
 
 	private void createArrestNotification(final DetentionRequestDto requestDto) {
+		final String purpose = requestDto.getDetentionDto().getPurpose();
+		final Long fineAmount = requestDto.getDetentionDto().getAmount();
+		final String docNum = requestDto.getDetentionDto().getDocNum();
 		final String toAddress = requestDto.getEmail();
 		final String subject = "You received arrest";
 		final String
 			content =
 			"Hello, " +
 				requestDto.getFirstName() +
-				" you received an arrest for the amount " +
-				requestDto.getDetentionDto().getAmount();
+				" you received an fine for " + purpose + "\n" +
+				"Fine amount = " + fineAmount + "\n" +
+				"Your document number by which you can check info about you " + docNum;
 		configureMimeMessage(toAddress, subject, content);
 	}
 

@@ -36,7 +36,7 @@ public class OrganCodeMatchValidatorTest {
         IdentityDocumentDto identityDocumentDto = new IdentityDocumentDto();
         ExternalIdentityDocumentType identDocType = ExternalIdentityDocumentType.STATE_TAX_SERVICE_PASSPORT;
         String identDocSeries = "11 22 333333";
-        identityDocumentDto.setType(identDocType);
+        identityDocumentDto.setOrganPassportCode(identDocType);
         identityDocumentDto.setNumberSeries(identDocSeries);
         request.setOrganCode(stateTaxService);
         request.setIdentityDocumentDto(identityDocumentDto);

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class ExternalDataConverterImpl implements ExternalDataConverter {
 
     public Pair<InternalIdentityDocumentType, String> convertExternalToInternalData(DetentionRequestDto request) {
-        ExternalIdentityDocumentType externalType = request.getIdentityDocumentDto().getType();
+        ExternalIdentityDocumentType externalType = request.getIdentityDocumentDto().getOrganPassportCode();
         String externalSeries = request.getIdentityDocumentDto().getNumberSeries();
         InternalIdentityDocumentType internalType = externalType.getInternalType();
         String internalFormat = externalType.getInternalSeries(externalSeries);
