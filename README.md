@@ -27,7 +27,8 @@ Service of Bailiffs(code 17)
 | 70 | passport |NNNNNN-SS |
 | 80 | foreign passport | NNNNNN.SS |
 
-![Screenshot_10](https://github.com/MaksymMedvedchuk/DetentionTrackingSystem/assets/106758793/445d0dfc-170b-45bc-98f6-749882482a77)
+![Screenshot_10](https://github.com/MaksymMedvedchuk/DetentionTrackingSystem/assets/106758793/cfe0afac-7a70-462b-8bbc-20da31fe9d54)
+
 
 
 
