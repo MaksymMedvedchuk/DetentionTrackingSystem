@@ -13,12 +13,9 @@ import java.util.Set;
 @Service
 public class AccessTokenInvalidationServiceImpl implements AccessTokenInvalidationService {
 
-private final TokenService tokenService;
-
 	private final Set<String> tokens = new HashSet<>();
 
 	public AccessTokenInvalidationServiceImpl(final TokenService tokenService) {
-		this.tokenService = tokenService;
 	}
 
 	@Override

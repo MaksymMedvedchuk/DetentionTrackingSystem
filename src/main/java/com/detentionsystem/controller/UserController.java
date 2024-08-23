@@ -33,7 +33,7 @@ public class UserController {
 	@Operation(summary = "Delete user and tokens by user id")
 	@PreAuthorize("hasRole('ADMIN') or hasRole('PERSONE')")
 	@SecurityRequirement(name = "Authorization")
-	public ResponseEntity<String> deleteUser(@PathVariable Long userId){
+	public ResponseEntity<String> deleteUser(@PathVariable Long userId) {
 		User user = userService.getUserById(userId);
 		userService.deleteUserById(user.getId());
 		log.debug("In deleteUser: deleted user with id: {}", userId);

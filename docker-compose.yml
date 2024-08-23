@@ -3,18 +3,18 @@ version: '3.7'
 services:
   db:
     image: postgres:latest
-    container_name: db-arrest-postgres
+    container_name: db-dts
     ports:
-      - 5433:5432
+      - 5454:5432
     expose:
-      - "5433"
+      - "5454"
     environment:
       POSTGRES_DB: CustomerArrestSystem
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 3346
 
   backend:
-    container_name: backend
+    container_name: backend-dts
     build:
       context: ..
       dockerfile: DetentionTrackingSystem/docker/builder/DockerFile

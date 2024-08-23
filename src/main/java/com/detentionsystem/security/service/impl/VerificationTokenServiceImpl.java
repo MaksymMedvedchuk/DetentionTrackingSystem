@@ -11,6 +11,7 @@ import com.detentionsystem.security.service.TokenService;
 import com.detentionsystem.security.service.VerificationTokenService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -80,7 +81,7 @@ public class VerificationTokenServiceImpl implements VerificationTokenService {
 
 		final Key key = getKey(tokenType);
 
-		log.info("In createJwtValue trying to create jwt for user with email {}", user.getEmail());
+		log.info("In createJwtValue trying to create jwt for user with email {} and name {}", user.getEmail(), user.getFirstName());
 		return Jwts.builder()
 			.setIssuedAt(dataTimeService.toDate(LocalDateTime.now()))
 			.setClaims(claims)

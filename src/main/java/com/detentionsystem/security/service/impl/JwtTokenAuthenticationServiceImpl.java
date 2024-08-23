@@ -69,7 +69,7 @@ public class JwtTokenAuthenticationServiceImpl implements JwtTokenAuthentication
 	) {
 		Key key = getSigningKey();
 		try {
-			Claims claims = getTokenPayload(accessToken, key);
+			getTokenPayload(accessToken, key);
 			return true;
 		} catch (Exception e) {
 			handleJwtException(request, response, e);
@@ -96,9 +96,9 @@ public class JwtTokenAuthenticationServiceImpl implements JwtTokenAuthentication
 	}
 
 	private Key getSigningKey() {
-		Key key = tokenSecretKey.getTokenKey(TokenType.ACCESS);
-		return key;
+		return tokenSecretKey.getTokenKey(TokenType.ACCESS);
 	}
+
 
 	private Claims getTokenPayload(final String jwtToken, final Key key) {
 		return Jwts.parser().setSigningKey(key).parseClaimsJws(jwtToken).getBody();
@@ -111,11 +111,11 @@ public class JwtTokenAuthenticationServiceImpl implements JwtTokenAuthentication
 	@Override
 	public String getSubjectFromToken(final String accessToken) {
 		Key key = getSigningKey();
-		String subject = getTokenPayload(accessToken, key).getSubject();
-		return subject;
+		return getTokenPayload(accessToken, key).getSubject();
 	}
 
 	@Override
+
 	public String generateAccessTokenFromRefreshToken(final String refreshTokenValue) {
 		final Token token = tokenService.findToken(refreshTokenValue, TokenType.REFRESH);
 		final User user = userService.getUserById(token.getUserId());

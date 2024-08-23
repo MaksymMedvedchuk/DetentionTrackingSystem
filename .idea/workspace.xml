@@ -4,60 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="547e7ebe-7c06-4470-af04-2e51e5686382" name="Changes" comment="fixed code">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/controller/DetentionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/controller/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/converter/DetentionConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/exception/DetentionNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/repository/DetentionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/service/DetentionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/service/DetentionTrackingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/service/impl/DetentionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ArrestManagementSystem_war.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ArrestManagementSystem_war_exploded.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/CustomerArrestSystem_war.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/CustomerArrestSystem_war_exploded.xml" beforeDir="false" />
+    <list default="true" id="547e7ebe-7c06-4470-af04-2e51e5686382" name="Changes" comment="added tests, fixed code and added controller for pay fine">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/DetentionApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/DetentionApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/controller/ArrestManagementController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/controller/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/controller/EmailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/converter/ArrestDataConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/converter/ExternalDataConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/converter/ExternalDataConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/converter/ExternalDataConverterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/converter/ExternalDataConverterImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/domain/dto/ArrestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/domain/dto/DetentionDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/domain/dto/ArrestRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/domain/dto/DetentionRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/domain/dto/IdentityDocumentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/domain/dto/IdentityDocumentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/domain/dto/ResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/domain/dto/ResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/domain/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/domain/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/domain/entity/Arrest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/domain/entity/Detention.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/domain/entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/domain/entity/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/exception/ArrestNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/exception/CustomerRestExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/exception/CustomerRestExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/repository/ArrestRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/service/ArrestManagementService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/service/ArrestManagementServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/service/DetentionTrackingServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/service/ArrestService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/service/email/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/service/email/EmailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/service/email/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/service/email/EmailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/service/email/MimeMessageProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/service/email/MimeMessageProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/core/service/impl/ArrestServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/validator/OrganCodeMatchValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/validator/OrganCodeMatchValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/validator/OrganCodeMatchValidatorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/validator/OrganCodeMatchValidatorImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/security/service/impl/AccessTokenInvalidationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/security/service/impl/AccessTokenInvalidationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/security/service/impl/JwtTokenAuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/security/service/impl/JwtTokenAuthenticationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/detentionsystem/security/service/impl/VerificationTokenServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/detentionsystem/security/service/impl/VerificationTokenServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__Create_Tables_Arrest_And_Person.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__Create_Tables_Detention_And_Person.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/detentionsystem/core/converter/ExternalDataConverterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/detentionsystem/core/converter/ExternalDataConverterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/detentionsystem/core/service/ArrestManagementServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/detentionsystem/core/service/DetentionTrackingServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/detentionsystem/validator/OrganCodeMatchValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/detentionsystem/validator/OrganCodeMatchValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/detentionsystem/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/detentionsystem/controller/UserControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,12 +32,20 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="#7_add_pitest_configuration" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/io/jsonwebtoken/jjwt-api/0.11.5/jjwt-api-0.11.5-sources.jar!/io/jsonwebtoken/JwtParser.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/io/jsonwebtoken/jjwt-api/0.11.5/jjwt-api-0.11.5-sources.jar!/io/jsonwebtoken/security/SignatureException.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$MAVEN_REPOSITORY$/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0-sources.jar!/jakarta/persistence/AttributeConverter.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/10.1.5/tomcat-embed-core-10.1.5-sources.jar!/jakarta/servlet/FilterChain.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/10.1.5/tomcat-embed-core-10.1.5-sources.jar!/jakarta/servlet/http/HttpServletRequest.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.9.2/junit-jupiter-api-5.9.2-sources.jar!/org/junit/jupiter/api/extension/ExtendWith.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/6.0.2/spring-security-config-6.0.2-sources.jar!/org/springframework/security/config/annotation/web/AbstractRequestMatcherRegistry.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/6.0.2/spring-security-config-6.0.2-sources.jar!/org/springframework/security/config/annotation/web/builders/HttpSecurity.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/6.0.2/spring-security-config-6.0.2-sources.jar!/org/springframework/security/config/annotation/web/configurers/ExpressionUrlAuthorizationConfigurer.java" root0="SKIP_INSPECTION" />
@@ -128,10 +96,12 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/po1ak/IdeaProjects/jv-notes-service-v1&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.5689655&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;90b3a679260d21817a6e9fb8ada0b6f9&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -147,8 +117,29 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml.db: Compose Deployment">
+  <component name="RunManager" selected="Docker.docker-compose.yml.backend: Compose Deployment">
+    <configuration name="UserControllerTest.shouldDeleteUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DetentionTrackingSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.detentionsystem.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.detentionsystem.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.detentionsystem.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="shouldDeleteUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DetentionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" />
+      <envs>
+        <env name="GMAIL_USER_NAME" value="po1ak89" />
+        <env name="GMAIL_PASSWORD" value="zjjnzyrhgpfexhlq" />
+      </envs>
       <module name="DetentionTrackingSystem" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.detentionsystem.DetentionApplication" />
       <extension name="coverage">
@@ -156,6 +147,11 @@
           <option name="PATTERN" value="com.detentionsystem.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
       </extension>
       <method v="2">
         <option name="Make" enabled="true" />
@@ -196,17 +192,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml.backend: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yml.backend: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
+      <item itemvalue="JUnit.UserControllerTest.shouldDeleteUser" />
       <item itemvalue="Spring Boot.DetentionApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.DetentionApplication" />
-        <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.backend: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
+        <item itemvalue="Spring Boot.DetentionApplication" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="JUnit.UserControllerTest.shouldDeleteUser" />
       </list>
     </recent_temporary>
   </component>
@@ -231,7 +229,94 @@
       <workItem from="1705396571039" duration="1129000" />
       <workItem from="1705398105846" duration="384000" />
       <workItem from="1705399577408" duration="515000" />
-      <workItem from="1705401282859" duration="1155000" />
+      <workItem from="1705401282859" duration="5359000" />
+      <workItem from="1705432543170" duration="6180000" />
+      <workItem from="1705480587589" duration="25959000" />
+      <workItem from="1705570894252" duration="18036000" />
+      <workItem from="1705657847854" duration="8978000" />
+      <workItem from="1705920666400" duration="11000" />
+      <workItem from="1705936760018" duration="1150000" />
+      <workItem from="1705948403300" duration="4857000" />
+      <workItem from="1706020308377" duration="2392000" />
+      <workItem from="1706183577715" duration="606000" />
+      <workItem from="1706195352745" duration="598000" />
+      <workItem from="1706282473358" duration="1201000" />
+      <workItem from="1706974199075" duration="2468000" />
+      <workItem from="1707167117379" duration="1631000" />
+      <workItem from="1707253560641" duration="646000" />
+      <workItem from="1707254224422" duration="725000" />
+      <workItem from="1707341207854" duration="2141000" />
+      <workItem from="1707343385667" duration="414000" />
+      <workItem from="1707384235177" duration="1698000" />
+      <workItem from="1707385992395" duration="8481000" />
+      <workItem from="1707494892507" duration="16000" />
+      <workItem from="1707510719275" duration="616000" />
+      <workItem from="1707669272263" duration="89000" />
+      <workItem from="1707835088546" duration="358000" />
+      <workItem from="1707849737800" duration="783000" />
+      <workItem from="1707854186051" duration="3202000" />
+      <workItem from="1707926253194" duration="6002000" />
+      <workItem from="1707944943119" duration="534000" />
+      <workItem from="1707989242313" duration="921000" />
+      <workItem from="1708455625419" duration="31000" />
+      <workItem from="1708455678407" duration="32000" />
+      <workItem from="1708455727346" duration="56000" />
+      <workItem from="1708455800969" duration="244000" />
+      <workItem from="1708543456823" duration="1228000" />
+      <workItem from="1708625089733" duration="9990000" />
+      <workItem from="1708691261167" duration="3051000" />
+      <workItem from="1708945962154" duration="9085000" />
+      <workItem from="1709062556194" duration="606000" />
+      <workItem from="1709109931496" duration="4929000" />
+      <workItem from="1709149964130" duration="602000" />
+      <workItem from="1709206521818" duration="1254000" />
+      <workItem from="1709719416384" duration="15000" />
+      <workItem from="1710793882392" duration="588000" />
+      <workItem from="1710796508953" duration="463000" />
+      <workItem from="1710929452323" duration="2363000" />
+      <workItem from="1711049130477" duration="182000" />
+      <workItem from="1711450651844" duration="4670000" />
+      <workItem from="1711532050687" duration="5153000" />
+      <workItem from="1711632731462" duration="3227000" />
+      <workItem from="1712059122453" duration="2096000" />
+      <workItem from="1712674083051" duration="18000" />
+      <workItem from="1712692997828" duration="20000" />
+      <workItem from="1712737415172" duration="1205000" />
+      <workItem from="1713186650361" duration="607000" />
+      <workItem from="1713189630834" duration="7455000" />
+      <workItem from="1713264949368" duration="3509000" />
+      <workItem from="1713343494573" duration="1249000" />
+      <workItem from="1713351812686" duration="2492000" />
+      <workItem from="1713367265961" duration="3282000" />
+      <workItem from="1713430422616" duration="1032000" />
+      <workItem from="1713431902550" duration="6466000" />
+      <workItem from="1713453237213" duration="7404000" />
+      <workItem from="1713513672426" duration="1793000" />
+      <workItem from="1713540138171" duration="333000" />
+      <workItem from="1713541309874" duration="29000" />
+      <workItem from="1713797020301" duration="1257000" />
+      <workItem from="1713818441789" duration="53000" />
+      <workItem from="1713892281108" duration="6211000" />
+      <workItem from="1714032923348" duration="6261000" />
+      <workItem from="1714040746279" duration="2679000" />
+      <workItem from="1714423310354" duration="2000" />
+      <workItem from="1714487048084" duration="3575000" />
+      <workItem from="1714551445061" duration="1000" />
+      <workItem from="1714638420244" duration="5656000" />
+      <workItem from="1715794642880" duration="1120000" />
+      <workItem from="1715795783312" duration="703000" />
+      <workItem from="1715846196972" duration="44000" />
+      <workItem from="1716382404942" duration="6399000" />
+      <workItem from="1716400480487" duration="277000" />
+      <workItem from="1717524611449" duration="15000" />
+      <workItem from="1717959941259" duration="6000" />
+      <workItem from="1718186004958" duration="29000" />
+      <workItem from="1718799737722" duration="200000" />
+      <workItem from="1719225994078" duration="11085000" />
+      <workItem from="1719250135272" duration="1727000" />
+      <workItem from="1722953689889" duration="1441000" />
+      <workItem from="1724336183337" duration="5169000" />
+      <workItem from="1724406172479" duration="1194000" />
     </task>
     <task id="LOCAL-00001" summary="fixed code">
       <created>1704363242721</created>
@@ -240,7 +325,63 @@
       <option name="project" value="LOCAL" />
       <updated>1704363242721</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fixed code">
+      <created>1705403037075</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705403037075</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added pitest conf">
+      <created>1705404455213</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705404455213</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added tests for AuthController">
+      <created>1705500801211</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705500801211</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added tests for EmailController">
+      <created>1705505105349</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705505105349</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added tests for TokenController and UserController">
+      <created>1705521492949</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1705521492949</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added tests">
+      <created>1705937286740</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705937286740</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added tests, fixed code">
+      <created>1708628311112</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1708628311113</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added tests, fixed code and added controller for pay fine">
+      <created>1708977395981</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1708977395981</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,15 +400,22 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed code" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed code" />
+    <MESSAGE value="added pitest conf" />
+    <MESSAGE value="added tests for AuthController" />
+    <MESSAGE value="added tests for EmailController" />
+    <MESSAGE value="added tests for TokenController and UserController" />
+    <MESSAGE value="added tests" />
+    <MESSAGE value="added tests, fixed code" />
+    <MESSAGE value="added tests, fixed code and added controller for pay fine" />
+    <option name="LAST_COMMIT_MESSAGE" value="added tests, fixed code and added controller for pay fine" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/detentionsystem/security/filter/JwtAuthorizationFilter.java</url>
           <line>50</line>
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

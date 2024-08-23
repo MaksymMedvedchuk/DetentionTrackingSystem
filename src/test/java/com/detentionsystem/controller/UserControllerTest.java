@@ -1,7 +1,6 @@
 package com.detentionsystem.controller;
 
 import com.detentionsystem.core.domain.entity.User;
-import com.detentionsystem.core.exception.ResourceNotfoundException;
 import com.detentionsystem.core.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,8 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
